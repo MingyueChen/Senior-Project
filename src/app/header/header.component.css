@@ -1,0 +1,11 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
+.router-link-active {
+  border: 2px solid;
+  background-color:  rgb(44, 112, 135);
+  font-weight: bold;
+}
+
+h6 {
+  color: white;
+}

@@ -8,9 +8,9 @@ import { HeaderComponent } from './header/header.component';
 import { OfficeLocationComponent } from './office-location/office-location.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AppRoutingModule } from './app-routing.module';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeListComponent } from './home/home-list/home-list.component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,13 +19,14 @@ import { HomeListComponent } from './home/home-list/home-list.component';
     HeaderComponent,
     OfficeLocationComponent,
     ContactUsComponent,
-    HomeListComponent
+    HomeListComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    NgbModule
+    HttpClientModule,
+    NgbModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

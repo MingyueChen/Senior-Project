@@ -17,7 +17,7 @@ export class HomeListComponent implements OnInit, OnDestroy {
   constructor(public homeService: HomeService) { }
 
   ngOnInit() {
-    this.employeeInfo = this.homeService.getInfo();
+    this.homeService.getInfo();
     // 1st argument in subscribe: a function which is called whenever a new value was received
     this.homeSub = this.homeService.getInfoUpdateListener()
       .subscribe((employeeInfo: EmployeeInfo[]) => {

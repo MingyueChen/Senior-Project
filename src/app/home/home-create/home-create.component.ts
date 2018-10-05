@@ -23,6 +23,7 @@ export class HomeCreateComponent implements OnInit {
     }
 
     this.homeService.addInfo(form.value.employeeEmail, form.value.employeeName);
+    form.resetForm();
   }
 
 }// end of class

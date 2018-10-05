@@ -1,5 +1,5 @@
 export interface EmployeeInfo {
-  // employeeID: string;
+  employeeID: string;
   employeeName: string;
   employeeEmail: string;
 }

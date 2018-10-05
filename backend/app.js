@@ -13,15 +13,33 @@ const app = express(); //return an express app
 //   console.log('First middleware');
 //   next();
 // });
+const bodyParser = require ("body-parser");
+app.use(bodyParser.json());
 
-app.use('/', (req, res, next) => {
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE, OPTIONS');
+  next();
+});
+
+app.post('/', (req, res, next) => {
+  const info = req.body;
+  console.log(info);
+  // return a response
+  res.status(201).json({
+    message: 'Info added successfully'
+  });
+});
+
+app.get('/', (req, res, next) => {
   const info = [
-    {  employeeID: '2fg28',
+    { employeeID: '2fg28',
       employeeName: 'Jack',
       employeeEmail: 'minas@gmail.com'
     },
 
-    {  employeeID: '34ytey34',
+    { employeeID: '34ytey34',
       employeeName: 'Lisa',
       employeeEmail: 'lisa_8@gmail.com'
     }

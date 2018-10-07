@@ -16,9 +16,10 @@
               <div class="card-body" *ngIf = "employeeInfo.length > 0">
                 <p class="card-text" *ngFor="let einfo of employeeInfo">
                     {{ einfo.employeeName }} -- {{ einfo.employeeEmail }}
+                    <button class="btn btn-success">EDIT</button>
+                    <button class="btn btn-danger" (click)="onDelete(einfo.employeeID)">DELETE</button>
                 </p>
-                <button class="btn btn-success">EDIT</button>
-                <button class="btn btn-danger">DELETE</button>
+
               </div>
           </div>
       </div>

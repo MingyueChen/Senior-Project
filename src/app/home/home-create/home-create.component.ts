@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {  HomeService } from '../home.service';
 
+
+
 @Component({
   selector: 'app-home-create',
   templateUrl: './home-create.component.html',
@@ -9,21 +11,18 @@ import {  HomeService } from '../home.service';
 })
 export class HomeCreateComponent implements OnInit {
 
-  enteredStaffEmail = '';
-  enteredStaffName = '';
-
   constructor(public homeService: HomeService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   onAddEmployeeInfo (form: NgForm) {
     if (form.invalid) {
       return;
     }
 
-    this.homeService.addInfo(form.value.employeeEmail, form.value.employeeName);
+    this.homeService.addInfo(form.value.employeeName, form.value.employeeEmail);
     form.resetForm();
   }
+
 
 }// end of class

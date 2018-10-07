@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import {  HomeService } from '../home.service';
+import { HomeService } from '../home.service';
 import { EmployeeInfo } from '../home.model';
 import { Subscription } from 'rxjs';
 
@@ -25,6 +25,9 @@ export class HomeListComponent implements OnInit, OnDestroy {
       });
   }
 
+  onDelete(employeeID: string) {
+    this.homeService.deleteEmployeeInfo(employeeID);
+  }
   // when this component is not part of DOM, the subcscriptions which we set up are not living anymore. Otherwise, we will get memory leak.
   ngOnDestroy() {
     this.homeSub.unsubscribe();

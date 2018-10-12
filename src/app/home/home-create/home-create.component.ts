@@ -28,7 +28,6 @@ export class HomeCreateComponent implements OnInit {
       if (paramMap.has('employeeID')) {
         this.mode = 'edit';
         this.employeeID = paramMap.get('employeeID');
-        console.log(this.employeeID);
         this.homeService.getEmployeeInfo(this.employeeID).subscribe(infoData => {
           this.employeeInfo = {employeeID: infoData._id, employeeEmail: infoData.employeeEmail, employeeName: infoData.employeeName};
         });

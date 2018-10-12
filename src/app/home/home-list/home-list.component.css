@@ -32,3 +32,7 @@ h2 {
 .form-group {
   margin: 5px;
 }
+
+.btn-info {
+  margin-right: 3px;
+}

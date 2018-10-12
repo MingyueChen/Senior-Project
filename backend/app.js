@@ -72,14 +72,14 @@ app.post('/', (req, res, next) => {
 
 app.put('/:id', (req, res, next) => {
   const info = new EmployeeInfo({
-    _id: req.body.id,
+    _id: req.params.id,
     employeeName: req.body.employeeName,
     employeeEmail: req.body.employeeEmail
   });
-  // EmployeeInfo is the model we import
+
   // the id matches ':/id'
   // second object is the new object we want to store
-  EmployeeInfo.updateOne({_id: req.params.id}, info).then(result => {
+  EmployeeInfo.updateOne({ _id: req.params.id }, info).then(result => {
     res.status(200).json({messagge: "Update successful!"});
   })
 })

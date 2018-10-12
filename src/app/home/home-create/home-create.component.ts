@@ -27,7 +27,8 @@ export class HomeCreateComponent implements OnInit {
       // we check if it has 'employeeID' because we name it employeeID in app-routing.module.ts
       if (paramMap.has('employeeID')) {
         this.mode = 'edit';
-        this.employeeID = paramMap.get('emplyeeID');
+        this.employeeID = paramMap.get('employeeID');
+        console.log(this.employeeID);
         this.homeService.getEmployeeInfo(this.employeeID).subscribe(infoData => {
           this.employeeInfo = {employeeID: infoData._id, employeeEmail: infoData.employeeEmail, employeeName: infoData.employeeName};
         });

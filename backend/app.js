@@ -34,7 +34,7 @@ app.use(bodyParser.json());
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
   next();
 });
 
@@ -70,6 +70,20 @@ app.post('/', (req, res, next) => {
   });
 });
 
+app.put('/:id', (req, res, next) => {
+  const info = new EmployeeInfo({
+    _id: req.body.id,
+    employeeName: req.body.employeeName,
+    employeeEmail: req.body.employeeEmail
+  });
+  // EmployeeInfo is the model we import
+  // the id matches ':/id'
+  // second object is the new object we want to store
+  EmployeeInfo.updateOne({_id: req.params.id}, info).then(result => {
+    res.status(200).json({messagge: "Update successful!"});
+  })
+})
+
 app.get('/', (req, res, next) => {
   // use EmployeeInfo model and a static method (find) again to find the info
   // then block holds results
@@ -82,6 +96,15 @@ app.get('/', (req, res, next) => {
     });
 });
 
+app.get('/:id', (req, res, next) => {
+  EmployeeInfo.findById(req.params.id).then(info => {
+    if (info) {
+      res.status(200).json(info);
+    } else {
+      res.status(404).json({message: "Info not found!"});
+    }
+  })
+})
 app.delete('/:id', (req, res, next) => {
   // params is a property managed by Express which gives
   // me access to all enconded parameters. In our case, we only have one encoded parameter: id

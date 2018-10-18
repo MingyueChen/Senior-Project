@@ -1,0 +1,17 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
+
+.card {
+  height:100%;
+  width: 100%;
+  margin: 0%;
+  background-color: rgb(223, 233, 238);
+  display: block;
+  z-index: 9999;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow: auto;
+}

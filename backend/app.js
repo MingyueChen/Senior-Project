@@ -2,7 +2,9 @@
 //This app.js file will hold the Express app which is still
 //a NodeJS server-side app which takes advantage of express features
 const express = require('express');
+
 const bodyParser = require ("body-parser");
+const nodemailer= require ("nodemailer");
 const mongoose = require("mongoose");
 const EmployeeInfo = require('./models/employeeInfo');
 const app = express(); //return an express app
@@ -21,6 +23,17 @@ const app = express(); //return an express app
 // katteell-and-company database the first time I try to write to it
 // and it will create a new info entry or documents
 // (below, I used info.save(), so the entry is info)
+
+let transporter  = nodemailer.createTransport({
+  service: 'gmail',
+
+  secure: true,
+
+  auth: {
+    user: 'xrj0830@gmail.com',
+    pass: 'Xrj2017!',
+  }});
+
 mongoose.connect("mongodb+srv://Mingyue:YHscIiTW176wx73Y@kattell-and-company-wyfek.mongodb.net/kattell-and-company?retryWrites=true",{useNewUrlParser: true})
 .then(() => {
 
@@ -30,11 +43,12 @@ mongoose.connect("mongodb+srv://Mingyue:YHscIiTW176wx73Y@kattell-and-company-wyf
 });
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extented:true}));
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE, OPTIONS');
   next();
 });
 
@@ -70,20 +84,6 @@ app.post('/', (req, res, next) => {
   });
 });
 
-app.put('/:id', (req, res, next) => {
-  const info = new EmployeeInfo({
-    _id: req.params.id,
-    employeeName: req.body.employeeName,
-    employeeEmail: req.body.employeeEmail
-  });
-
-  // the id matches ':/id'
-  // second object is the new object we want to store
-  EmployeeInfo.updateOne({ _id: req.params.id }, info).then(result => {
-    res.status(200).json({messagge: "Update successful!"});
-  })
-})
-
 app.get('/', (req, res, next) => {
   // use EmployeeInfo model and a static method (find) again to find the info
   // then block holds results
@@ -95,16 +95,27 @@ app.get('/', (req, res, next) => {
       });
     });
 });
-
-app.get('/:id', (req, res, next) => {
-  EmployeeInfo.findById(req.params.id).then(info => {
-    if (info) {
-      res.status(200).json(info);
-    } else {
-      res.status(404).json({message: "Info not found!"});
+app.post('/send',(req,res,next)=>{
+  console.log(req.body);
+  mailOptions= {
+    from: req.body.firstname, // login user must equel to this user
+    to: 'rxu960830@ufl.edu',
+    subject: 'Title Nodejs Send',
+    text: 'Some simple words.',
+    html: "<b>"+"firstName:"+req.body.firstname+" "+
+            "lastName:"+req.body.lastname+" "+
+            "email:"+req.body.emailaddress+" "+
+            "phonenumber:"+req.body.phonenumber+" "+
+            "message:"+req.body.message+" "+"</b>"
+  };
+    transporter.sendMail(mailOptions, function(error, info){
+    if(error){
+      return console.log(error);
     }
-  })
-})
+    console.log('Message sent: ' + info.response);
+  });
+  res.status(200).json({message: req.body.firstname});
+});
 app.delete('/:id', (req, res, next) => {
   // params is a property managed by Express which gives
   // me access to all enconded parameters. In our case, we only have one encoded parameter: id
@@ -112,6 +123,7 @@ app.delete('/:id', (req, res, next) => {
     res.status(200).json({message: "Info deleted!"});
   });
 });
+
 
 module.exports = app;
 

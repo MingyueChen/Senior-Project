@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {  HomeService } from '../home.service';
-import { ActivatedRoute, ParamMap } from '@angular/router';
-import { EmployeeInfo } from '../home.model';
+
 
 
 @Component({
@@ -38,16 +37,15 @@ export class HomeCreateComponent implements OnInit {
     });
   }
 
-  onSaveEmployeeInfo (form: NgForm) {
+
+  ngOnInit() { }
+
+  onAddEmployeeInfo (form: NgForm) {
     if (form.invalid) {
       return;
     }
 
-    if (this.mode === 'create') {
-      this.homeService.addInfo(form.value.employeeName, form.value.employeeEmail);
-    } else {
-      this.homeService.updateEmployeeInfo(this.employeeID, form.value.employeeName, form.value.employeeEmail);
-    }
+    this.homeService.addInfo(form.value.employeeName, form.value.employeeEmail);
     form.resetForm();
   }
 

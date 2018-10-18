@@ -6,7 +6,7 @@ import { NgModule } from '@angular/core';
 import {  FormsModule } from '@angular/forms';
 import { HttpModule} from '@angular/http';
 import { MatSnackBarModule} from '@angular/material';
-import { MatSnackBarConfig } from "@angular/material";
+import { MatSnackBarConfig } from '@angular/material';
 import { AppComponent } from './app.component';
 import { HomeCreateComponent } from './home/home-create/home-create.component';
 import { HeaderComponent } from './header/header.component';

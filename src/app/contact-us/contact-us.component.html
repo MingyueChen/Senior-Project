@@ -22,30 +22,30 @@
       </div>
       <div class="contact">
         <h3>Email Us</h3>
-        {{msg}}
-        <form method="POST" action="send">
+
+        <form method="post">
           <p>
             <label>First Name</label>
-            <input type="text" name="name">
+            <input type="text" name="firstname" [(ngModel)]="firstname">
           </p>
           <p>
             <label>Last Name</label>
-            <input type="text" name="company">
+            <input type="text" name="lastname" [(ngModel)]= "lastname" >
           </p>
           <p>
             <label>Email Address</label>
-            <input type="email" name="email">
+            <input type="email" name="emailaddress" [(ngModel)]="emailaddress">
           </p>
           <p>
             <label>Phone Number</label>
-            <input type="text" name="phone">
+            <input type="text" name="phonenumber" [(ngModel)] ="phonenumber">
           </p>
           <p class="full">
             <label>Message</label>
-            <textarea name="message" rows="5"></textarea>
+            <textarea type ="text" name="message" rows="5" [(ngModel)]="message"></textarea>
           </p>
           <p class="full">
-            <button type="submit">Submit</button>
+            <button (click)="send()">Submit</button>
           </p>
         </form>
       </div>

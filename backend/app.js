@@ -96,6 +96,28 @@ app.get('/', (req, res, next) => {
     });
 });
 
+app.post('/send',(req,res,next)=>{
+  console.log(req.body);
+  mailOptions= {
+    from: 'req.body.emailaddress ', // login user must equel to this user
+    to: 'rxu960830@ufl.edu',
+    subject: 'Title Nodejs Send',
+    text: 'Some simple words.',
+    html: "<b>"+"firstName:"+req.body.firstname+" "+
+            "lastName:"+req.body.lastname+" "+
+            "email:"+req.body.emailaddress+" "+
+            "phonenumber:"+req.body.phonenumber+" "+
+            "message:"+req.body.message+" "+"</b>"
+  };
+    transporter.sendMail(mailOptions, function(error, info){
+    if(error){
+      return console.log(error);
+    }
+    console.log('Message sent: '+ info.response);
+  });
+  res.status(200).json({message: req.body.firstname});
+});
+
 app.get('/:id', (req, res, next) => {
   EmployeeInfo.findById(req.params.id).then(info => {
     if (info) {
@@ -103,8 +125,9 @@ app.get('/:id', (req, res, next) => {
     } else {
       res.status(404).json({message: "Info not found!"});
     }
-  })
-})
+  });
+});
+
 app.delete('/:id', (req, res, next) => {
   // params is a property managed by Express which gives
   // me access to all enconded parameters. In our case, we only have one encoded parameter: id

@@ -52,10 +52,6 @@ export class HomeService {
     return this.employeeInfoUpdated.asObservable();
   }
 
-  getEmployeeInfo(id: string) {
-    return this.http.get <{_id: string, employeeName: string, employeeEmail: string}>('http://localhost:3000/' + id);
-  }
-
   addInfo(name: string, email: string) {
     const employeeInfo: EmployeeInfo = {
       employeeID: null,
@@ -69,20 +65,6 @@ export class HomeService {
       this.employeeInfo.push(employeeInfo);
       // push/emit a new value nad the new value is a copy of the updated employee info
       this.employeeInfoUpdated.next([...this.employeeInfo]);
-    });
-  }
-
-  updateEmployeeInfo(id: string, name: string, email: string) {
-    const employeeInfo = {employeeID: id, employeeEmail: email, employeeName: name};
-    // '+id', the id matches the id passed into the function
-    // employeeInfo is the const created in this function
-    this.http.put('http://localhost:3000/' + id, employeeInfo).subscribe(response => {
-      const updatedInfo = [...this.employeeInfo];
-      const oldInfoIndex = updatedInfo.findIndex( e => e.employeeID === employeeInfo.employeeID
-        );
-        updatedInfo[oldInfoIndex] = employeeInfo;
-        this.employeeInfo = updatedInfo;
-        this.employeeInfoUpdated.next([...this.employeeInfo]);
     });
   }
 

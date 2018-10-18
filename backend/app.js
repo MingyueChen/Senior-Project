@@ -98,7 +98,7 @@ app.get('/', (req, res, next) => {
 app.post('/send',(req,res,next)=>{
   console.log(req.body);
   mailOptions= {
-    from: req.body.firstname, // login user must equel to this user
+    from: 'req.body.emailaddress ', // login user must equel to this user
     to: 'rxu960830@ufl.edu',
     subject: 'Title Nodejs Send',
     text: 'Some simple words.',

@@ -11,7 +11,8 @@ const routes: Routes = [
   { path: '', component: HomeListComponent },
   {path: 'addEmployeeInfo', component: HomeCreateComponent},
   { path: 'officeLocation', component: OfficeLocationComponent },
-  { path: 'contactUs', component: ContactUsComponent }
+  { path: 'contactUs', component: ContactUsComponent },
+  { path: 'edit/:employeeID', component: HomeCreateComponent }
 ];
 
 @NgModule({

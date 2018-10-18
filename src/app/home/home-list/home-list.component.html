@@ -15,9 +15,10 @@
 
               <div class="card-body" *ngIf = "employeeInfo.length > 0">
                 <p class="card-text" *ngFor="let einfo of employeeInfo">
-                    {{ einfo.employeeName }} -- {{ einfo.employeeEmail }}
-                    <button class="btn btn-success">EDIT</button>
-                    <button class="btn btn-danger" (click)="onDelete(einfo.employeeID)">DELETE</button>
+                    {{ einfo.employeeName }} - {{ einfo.employeeEmail }}
+                    <br />
+                    <a class="btn btn-info btn-sm" [routerLink]="['/edit', einfo.employeeID]">EDIT <i class="fa fa-pencil-square-o" aria-hidden="true"></i> </a>
+                    <button class="btn btn-danger btn-sm" (click)="onDelete(einfo.employeeID)">DELETE <i class="fa fa-times" aria-hidden="true"></i></button>
                 </p>
 
               </div>

@@ -18,6 +18,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeListComponent } from './home/home-list/home-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import {ContactService} from './contact-us/contact.service';
+import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import {ContactService} from './contact-us/contact.service';
     OfficeLocationComponent,
     ContactUsComponent,
     HomeListComponent,
+    LoginComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,

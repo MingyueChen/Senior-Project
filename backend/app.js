@@ -8,6 +8,7 @@ const mongoose = require("mongoose");
 
 const employeeInfosRoutes = require("./routes/employeeInfos");
 const sendEmailsRoutes = require("./routes/sendEmails");
+const adminRoutes = require("./routes/admin");
 
 const app = express(); //return an express app
 
@@ -26,14 +27,16 @@ const app = express(); //return an express app
 // and it will create a new info entry or documents
 // (below, I used info.save(), so the entry is info)
 
-mongoose.connect("mongodb+srv://Mingyue:YHscIiTW176wx73Y@kattell-and-company-wyfek.mongodb.net/kattell-and-company?retryWrites=true",{useNewUrlParser: true})
+mongoose.connect("mongodb+srv://Mingyue:YHscIiTW176wx73Y@kattell-and-company-wyfek.mongodb.net/kattell-and-company",{useNewUrlParser: true})
 .then(() => {
 
 })
 .catch(() => {
   console.log('Connection failed.');
 });
+mongoose.set('useCreateIndex', true);
 
+app.use(bodyParser.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
@@ -44,8 +47,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(employeeInfosRoutes);
-app.use(sendEmailsRoutes);
+app.use('', employeeInfosRoutes);
+app.use('', sendEmailsRoutes);
+app.use('/api/admin', adminRoutes);
 
 module.exports = app;
 

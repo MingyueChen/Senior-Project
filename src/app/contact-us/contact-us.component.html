@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Contact us</title>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+</head>
+<body>
+  <div class="container">
+    <h1 class="brand">Contact Us</h1>
+    <div class="wrapper animated bounceInLeft">
+      <div class="company-info">
+        <h3>Send us a message</h3>
+        <ul>
+          <li><i class="fa fa-road"></i> 808 NW 16th Ave B, Gainesville, FL 32601</li>
+          <li><i class="fa fa-phone"></i> (352)395-6565</li>
+          <li><i class="fa fa-envelope"></i> rxu960830@ufl.edu</li>
+        </ul>
+      </div>
+      <div class="contact">
+      <h3>Email Us</h3>
+
+        <form method="post">
+          <p>
+            <label>First Name</label>
+            <input type="text" name="firstname" [(ngModel)]="firstname">
+          </p>
+          <p>
+            <label>Last Name</label>
+            <input type="text" name="lastname" [(ngModel)]= "lastname" >
+          </p>
+          <p>
+            <label>Email Address</label>
+            <input type="email" name="emailaddress" [(ngModel)]="emailaddress">
+          </p>
+          <p>
+            <label>Phone Number</label>
+            <input type="text" name="phonenumber" [(ngModel)] ="phonenumber">
+          </p>
+          <p class="full">
+            <label>Message</label>
+            <textarea type ="text" name="message" rows="5" [(ngModel)]="message"></textarea>
+          </p>
+          <p class="full">
+            <button (click)="send()">Submit</button>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

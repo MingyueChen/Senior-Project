@@ -1,0 +1,34 @@
+<div class = "card mx-auto" id="homeCard" style="max-width: 50%;" align = "center">
+    <form (submit) = "onSaveEmployeeInfo(employeeForm)" #employeeForm="ngForm">
+        <div class="form-group">
+          <!-- <label for="exampleInputEmail1">Email address</label> -->
+          <input type="email" class="form-control"
+          id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email"
+          name="employeeEmail"
+          [ngModel] = "employeeInfo?.employeeEmail"
+          required>
+          <!--note: the [ngModel] employeeInfo is the property defined in home-create.component.ts-->
+        </div>
+
+        <div class="form-group">
+          <!-- <label for="exampleInputEmail1">Email address</label> -->
+          <input type="name"
+          class="form-control"
+          id="InputName"
+          placeholder="Enter name"
+          name="employeeName"
+          [ngModel] = "employeeInfo?.employeeName"
+          required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add Employee Info</button>
+    </form>
+
+</div>
+<head>
+<style>
+body {
+    background-color: lightblue;
+}
+</style>
+</head>

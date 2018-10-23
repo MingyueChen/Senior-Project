@@ -1,0 +1,28 @@
+
+          <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+              <a class="navbar-brand" routerLink="/">Kattell and Company, P.L.</a>
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" [ngbCollapse]="isCollapsed">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+              <div class="collapse navbar-collapse" id="navbarsExampleDefault" [ngbCollapse]="isCollapsed">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" routerLink="/" routerLinkActive = "router-link-active" [routerLinkActiveOptions]="{exact:
+                      true}"><h6>Home</h6> <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" routerLink="/contactUs" routerLinkActive = "router-link-active" [routerLinkActiveOptions]="{exact:
+                      true}" ><h6>Contact Us</h6></a>
+                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/userList" routerLinkActive = "router-link-active" [routerLinkActiveOptions]="{exact:
+                      true}" ><h6>Our Client</h6></a>
+                    </li>
+                  <li class="nav-item">
+                    <a class="nav-link" routerLink="/officeLocation" routerLinkActive = "router-link-active" [routerLinkActiveOptions]="{exact:
+                      true}" ><h6>Office Location</h6></a>
+                  </li>
+                </ul>
+              </div> <!--end of second group div-->
+             </nav>

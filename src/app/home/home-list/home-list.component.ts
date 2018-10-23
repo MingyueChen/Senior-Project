@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HomeService } from '../home.service';
 import { EmployeeInfo } from '../home.model';
 import { Subscription } from 'rxjs';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-home-list',
@@ -9,12 +10,15 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./home-list.component.css']
 })
 export class HomeListComponent implements OnInit, OnDestroy {
+
+  adminIsAuthenticated = false;
+  private authListenerSubs: Subscription;
   employeeInfo = [
     // { employeeName: 'Tony', email: 'tony@gmail.com'},
     // { employeeName: 'Stephen H. Kattell', email: 'skattell@kattell.com' }
   ];
   private homeSub: Subscription;
-  constructor(public homeService: HomeService) { }
+  constructor(public homeService: HomeService, private authService: AuthService) { }
 
   ngOnInit() {
     this.homeService.getInfo();
@@ -22,6 +26,10 @@ export class HomeListComponent implements OnInit, OnDestroy {
     this.homeSub = this.homeService.getInfoUpdateListener()
       .subscribe((employeeInfo: EmployeeInfo[]) => {
        this.employeeInfo = employeeInfo;
+      });
+      this.adminIsAuthenticated = this.authService.getIsAuth();
+      this.authListenerSubs = this.authService.getAuthStatusListener().subscribe(isAuthenticated => {
+        this.adminIsAuthenticated = isAuthenticated;
       });
   }
 
@@ -31,6 +39,7 @@ export class HomeListComponent implements OnInit, OnDestroy {
   // when this component is not part of DOM, the subcscriptions which we set up are not living anymore. Otherwise, we will get memory leak.
   ngOnDestroy() {
     this.homeSub.unsubscribe();
+    this.authListenerSubs.unsubscribe();
   }
 
 }

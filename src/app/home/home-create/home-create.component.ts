@@ -4,7 +4,6 @@ import {  HomeService } from '../home.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { EmployeeInfo } from '../home.model';
 
-
 @Component({
   selector: 'app-home-create',
   templateUrl: './home-create.component.html',

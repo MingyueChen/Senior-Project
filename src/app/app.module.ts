@@ -16,10 +16,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { HomeListComponent } from './home/home-list/home-list.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {ContactService} from './contact-us/contact.service';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
+import { AuthInterceptor } from './auth/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,9 @@ import { SignupComponent } from './auth/signup/signup.component';
     BrowserAnimationsModule,
     NgbModule.forRoot()
   ],
-  providers: [ContactService],
+  providers: [ContactService,
+              {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

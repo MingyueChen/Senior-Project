@@ -1,8 +1,9 @@
 const express = require("express");
 const EmployeeInfo = require('../models/employeeInfo');
+const checkAuth = require("../middleware/check-auth");
 const router = express.Router();
 
-router.post('', (req, res, next) => {
+router.post('', checkAuth, (req, res, next) => {
 
   const info = new EmployeeInfo({
     employeeName: req.body.employeeName,
@@ -34,7 +35,7 @@ router.post('', (req, res, next) => {
   });
 });
 
-router.put('/:id', (req, res, next) => {
+router.put('/:id', checkAuth, (req, res, next) => {
   const info = new EmployeeInfo({
     _id: req.params.id,
     employeeName: req.body.employeeName,
@@ -70,7 +71,7 @@ router.get('/:id', (req, res, next) => {
   });
 });
 
-router.delete('/:id', (req, res, next) => {
+router.delete('/:id', checkAuth, (req, res, next) => {
   // params is a property managed by Express which gives
   // me access to all enconded parameters. In our case, we only have one encoded parameter: id
   EmployeeInfo.deleteOne({_id: req.params.id}).then(result => {
@@ -79,3 +80,4 @@ router.delete('/:id', (req, res, next) => {
 });
 
 module.exports = router;
+

@@ -20,11 +20,12 @@
                       true}" ><h6>Office Location</h6></a>
                   </li>
                 </ul>
-                <a class="btn btn-outline-primary my-2 my-sm-0" routerLink="/signup" routerLinkActive = "router-link-active" [routerLinkActiveOptions]="{exact:
+                <a *ngIf="!adminIsAuthenticated" class="btn btn-outline-primary my-2 my-sm-0" routerLink="/signup" routerLinkActive = "router-link-active" [routerLinkActiveOptions]="{exact:
                   true}" ><h6>Sign Up</h6></a>
 
-                <a class="btn btn-outline-primary my-2 my-sm-0" routerLink="/login" routerLinkActive = "router-link-active" [routerLinkActiveOptions]="{exact:
+                <a *ngIf="!adminIsAuthenticated" class="btn btn-outline-primary my-2 my-sm-0" routerLink="/login" routerLinkActive = "router-link-active" [routerLinkActiveOptions]="{exact:
                   true}" ><h6>Log In</h6></a>
 
+                <button *ngIf="adminIsAuthenticated" class="btn btn-outline-primary my-2 my-sm-0" (click)="onLogout()">Log Out</button>
               </div> <!--end of second group div-->
              </nav>

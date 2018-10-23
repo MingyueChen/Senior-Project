@@ -7,21 +7,23 @@ import { OfficeLocationComponent } from './office-location/office-location.compo
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
+import { AuthGuard } from './auth/auth.guard';
 
 
 const routes: Routes = [
   { path: '', component: HomeListComponent },
-  { path: 'addEmployeeInfo', component: HomeCreateComponent},
+  { path: 'addEmployeeInfo', component: HomeCreateComponent, canActivate: [AuthGuard]},
   { path: 'officeLocation', component: OfficeLocationComponent },
   { path: 'contactUs', component: ContactUsComponent },
-  { path: 'edit/:employeeID', component: HomeCreateComponent },
+  { path: 'edit/:employeeID', component: HomeCreateComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 
 export class AppRoutingModule {}

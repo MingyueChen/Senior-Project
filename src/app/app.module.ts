@@ -7,7 +7,7 @@ import {  FormsModule } from '@angular/forms';
 import { HttpModule} from '@angular/http';
 import { MatSnackBarModule} from '@angular/material';
 import { MatSnackBarConfig } from '@angular/material';
-import { MatSnackBarConfig } from "@angular/material";
+
 import { AppComponent } from './app.component';
 import { HomeCreateComponent } from './home/home-create/home-create.component';
 import { HeaderComponent } from './header/header.component';
@@ -19,9 +19,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { DataTablesModule } from 'angular-datatables';
 import { HomeListComponent } from './home/home-list/home-list.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {ContactService} from './contact-us/contact.service';
 import { UserListComponent } from './user-list/user-list.component';
+
 
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
@@ -35,8 +36,8 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     OfficeLocationComponent,
     ContactUsComponent,
     HomeListComponent,
-	LoginComponent,
-	SignupComponent,
+	  LoginComponent,
+	  SignupComponent,
     UserListComponent,
 
   ],

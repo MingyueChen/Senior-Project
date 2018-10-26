@@ -23,15 +23,19 @@ export class AuthService {
   getAuthStatusListener() {
     return this.authStatusListener.asObservable();
   }
+
   createAdmin (email: string, password: string) {
     const authData: AuthData = {
       email: email,
       password: password
     }; // end of create authData
-    this.http.post('http://localhost:3000/api/admin/signup', authData)
-      .subscribe(response => {
-        console.log(response);
-      });
+    this.http.post('http://localhost:3000/api/admin/signup', authData).subscribe(() => {
+      this.router.navigate(['/login']);
+    }, error => {
+      console.log(error);
+      this.router.navigate(['/signup']);
+      this.authStatusListener.next(false);
+    });
   } // end of createAdmin
 
   login(email: string, password: string) {
@@ -54,6 +58,10 @@ export class AuthService {
           this.saveAuthData(token, expirationDate);
           this.router.navigate(['/']);
         }
+      }, error => {
+        console.log(error);
+        this.router.navigate(['/login']);
+        this.authStatusListener.next(false);
       });
   } // end of login
 

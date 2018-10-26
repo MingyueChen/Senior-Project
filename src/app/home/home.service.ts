@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({providedIn: 'root'})
 export class HomeService {
   private employeeInfo: EmployeeInfo[] = [];
   private employeeInfoUpdated = new Subject<EmployeeInfo[]>();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
   getInfo() {
     // make a true copy of employeeInfo
     // edit or delete info would not affect employeeInfo array
@@ -69,6 +70,7 @@ export class HomeService {
       this.employeeInfo.push(employeeInfo);
       // push/emit a new value nad the new value is a copy of the updated employee info
       this.employeeInfoUpdated.next([...this.employeeInfo]);
+      this.router.navigate(['/']);
     });
   }
 
@@ -83,6 +85,7 @@ export class HomeService {
         updatedInfo[oldInfoIndex] = employeeInfo;
         this.employeeInfo = updatedInfo;
         this.employeeInfoUpdated.next([...this.employeeInfo]);
+        this.router.navigate(['/']);
     });
   }
 

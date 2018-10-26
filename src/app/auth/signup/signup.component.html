@@ -1,9 +1,12 @@
 <div class = "card mx-auto" id="homeCard" style="max-width: 50%;" align = "center">
+  <div *ngIf="!isKaEmail">
+
+  </div>
     <form (submit)="onSignup(signupForm)" #signupForm="ngForm" >
         <div class="form-group">
           <!-- <label for="exampleInputEmail1">Email address</label> -->
           <input name="email" ngModel type="email" class="form-control"
-          id="email" aria-describedby="emailHelp" placeholder="Enter your email" #emailInput = "ngModel"
+          id="email" aria-describedby="emailHelp" placeholder="Enter your email (@kattell.com)*" #emailInput = "ngModel"
           required email>
           <!--note: the [ngModel] employeeInfo is the property defined in home-create.component.ts-->
         </div>
@@ -13,7 +16,7 @@
           <input name="password" ngModel type="password"
           class="form-control"
           id="password"
-          placeholder="Create a Password"
+          placeholder="Create a Password*"
           #passwordInput = "ngModel"
           required>
         </div>

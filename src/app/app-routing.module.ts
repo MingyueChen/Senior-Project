@@ -9,6 +9,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
+import { CustominfoUploadComponent } from './custominfo-upload/custominfo-upload.component';
 import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'userList', component: UserListComponent },
   { path: 'edit/:employeeID', component: HomeCreateComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
+  { path: 'CustominfoUploadComponent', component: CustominfoUploadComponent },
   { path: 'signup', component: SignupComponent }
 ];
 

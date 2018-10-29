@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="brand">Contact Us</h1>
+  <h1 class="brand">Upload File</h1>
   <div class="wrapper animated bounceInLeft">
     <div class="company-info">
       <h3>Send us a message</h3>
@@ -12,7 +12,11 @@
     <div class="contact">
 
       <h3>Email Us</h3>
-      <form method="post">
+      <form  method="post">
+        <p>
+          <label>Email Address</label>
+          <input type="email" name="emailaddress" [(ngModel)]="emailaddress">
+        </p>
         <p>
           <label>First Name</label>
           <input type="text" name="firstname" [(ngModel)]="firstname">
@@ -22,19 +26,12 @@
           <input type="text" name="lastname" [(ngModel)]= "lastname" >
         </p>
         <p>
-          <label>Email Address</label>
-          <input type="email" name="emailaddress" [(ngModel)]="emailaddress">
+          <label>Last Name</label>
+          <input type="file" ng2FileSelect [uploader]="uploader" (change)="selectedFileOnChanged($event)" />
         </p>
-        <p>
-          <label>Phone Number</label>
-          <input type="text" name="phonenumber" [(ngModel)] ="phonenumber">
-        </p>
+
         <p class="full">
-          <label>Message</label>
-          <textarea type ="text" name="message" rows="5" [(ngModel)]="message"></textarea>
-        </p>
-        <p class="full">
-          <button (click)="send()">Submit</button>
+          <button (click)="sendUserInfo()">Submit</button>
         </p>
       </form>
     </div>

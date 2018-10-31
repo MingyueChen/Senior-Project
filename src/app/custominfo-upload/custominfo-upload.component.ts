@@ -47,7 +47,6 @@ export class CustominfoUploadComponent implements OnInit {
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
       })
     };
-    // 发送信息给后台用户
     this.http.post('http://localhost:3000/mail/send', msg, headers).subscribe(
       data => {
         console.log(data);
@@ -55,27 +54,21 @@ export class CustominfoUploadComponent implements OnInit {
     );
   }
 
-
-  // 定义上传文件的回调函数
   selectedFileOnChanged (eventObj) {
     // console.dir(eventObj);
     this.uploadFileHandel();
   }
 
-  // 文件控件自动上传文件
   uploadFileHandel() {
     let that = this;
     this.uploader.queue[0].onSuccess = function (response, status, headers) {
-      // 上传文件成功
       if (status == 200) {
-        // 上传文件后获取服务器返回的数据
         let tempRes = JSON.parse(response);
         that.fileUrl = tempRes.url;
       }else {
-        // 上传文件后获取服务器返回的数据错误
       }
     };
-    this.uploader.queue[0].upload(); // 开始上传
+    this.uploader.queue[0].upload(); 
   }
 
 }

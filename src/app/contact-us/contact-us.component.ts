@@ -15,6 +15,7 @@ export class ContactUsComponent implements OnInit {
   message: any = '';
 
   constructor(private contactService: ContactService) {
+    debugger
   }
 
   ngOnInit() {

@@ -61,14 +61,15 @@ export class CustominfoUploadComponent implements OnInit {
 
   uploadFileHandel() {
     let that = this;
-    this.uploader.queue[0].onSuccess = function (response, status, headers) {
-      if (status == 200) {
+    var indexNum = this.uploader.queue.length - 1;
+    this.uploader.queue[indexNum].onSuccess = function (response, status, headers) {
+      if (status === 200) {
         let tempRes = JSON.parse(response);
         that.fileUrl = tempRes.url;
-      }else {
+      } else {
       }
     };
-    this.uploader.queue[0].upload(); 
+    this.uploader.queue[indexNum].upload();
   }
 
 }

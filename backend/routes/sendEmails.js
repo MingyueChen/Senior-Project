@@ -29,7 +29,7 @@ router.post('/send', function (req, res, next) {
     service: 'qq',
     secure: true,
     auth: {
-      user: '44491227@qq.com',
+      user: '2242135581@qq.com',
       pass: 'dfdwfocduipyeacd'
     }
   });
@@ -43,7 +43,7 @@ router.post('/send', function (req, res, next) {
 
   // console.log(req.body);
   var mailOptions = {
-    from: '444912227@@qq.com', // login user must equel to this user
+    from: '2242135581@qq.com', // login user must equel to this user
     to: 'xrj0830@gmail.com',
     subject: 'You have a new uploaded file',
     html: userInputInfo
@@ -59,7 +59,7 @@ router.post('/send', function (req, res, next) {
 
 router.post('/upload',upload.any(), function(req, res, next) {
   console.log("/mail/upload");
-  console.log(req.files); 
+  console.log(req.files);
 
   var fileName = "f" + new Date().getTime()+Math.floor(Math.random(1000)*1000) + getFileTypeName(req.files[0].originalname)
   var des_file = "./backend/uploadfile/" + fileName;
@@ -81,21 +81,21 @@ router.post('/upload',upload.any(), function(req, res, next) {
   });
 });
 
-router.post('/post', function (req, res, next) {
-  res.json(200, {
-    "body": req.body,
-    "query": req.query,
-    "params": req.params,
-  });
-});
-
-router.get('/get', function (req, res, next) {
-  res.json(200, {
-    "body": req.body,
-    "query": req.query,
-    "params": req.params,
-  });
-});
+// router.post('/post', function (req, res, next) {
+//   res.json(200, {
+//     "body": req.body,
+//     "query": req.query,
+//     "params": req.params,
+//   });
+// });
+//
+// router.get('/get', function (req, res, next) {
+//   res.json(200, {
+//     "body": req.body,
+//     "query": req.query,
+//     "params": req.params,
+//   });
+// });
 
 
 module.exports = router;

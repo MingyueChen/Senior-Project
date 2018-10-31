@@ -25,12 +25,12 @@ router.post('/send', function (req, res, next) {
 
   // send email server
   var transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    service: 'gmail',
+    host: 'smtp.qq.com',
+    service: 'qq',
     secure: true,
     auth: {
-      user: 'xrj0830@gmail.com',
-      pass: 'Xrj2017!'
+      user: '44491227@qq.com',
+      pass: 'dfdwfocduipyeacd'
     }
   });
 
@@ -43,7 +43,7 @@ router.post('/send', function (req, res, next) {
 
   // console.log(req.body);
   var mailOptions = {
-    from: 'req.body.emailaddress', // login user must equel to this user
+    from: '444912227@@qq.com', // login user must equel to this user
     to: 'xrj0830@gmail.com',
     subject: 'You have a new uploaded file',
     html: userInputInfo

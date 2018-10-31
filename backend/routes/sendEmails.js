@@ -3,11 +3,9 @@ const nodemailer = require("nodemailer");
 const router = express.Router();
 
 var fs = require('fs');
-//"path"模块提供了生成上传文件块的文件名的方法。
 var path = require('path');
 
 var util = require('util');
-//使用multiparty模块，也是必须要使用"multipart/form-data"类型
 var multer  = require('multer');
 var upload = multer({dest: 'backend/upload_tmp/'});
 
@@ -25,14 +23,14 @@ router.post('/send', function (req, res, next) {
   var imgurl = req.body.imgurl;
   var lastname = req.body.lastname;
 
-  // 发送邮件服务器账号
+  // send email server
   var transporter = nodemailer.createTransport({
-    host: 'smtp.qq.com',
-    service: 'qq',
+    host: 'smtp.gmail.com',
+    service: 'gmail',
     secure: true,
     auth: {
-      user: '939706250@qq.com',
-      pass: 'xxjskimcwccvbfid'
+      user: 'xrj0830@gmail.com',
+      pass: 'Xrj2017!'
     }
   });
 
@@ -45,13 +43,9 @@ router.post('/send', function (req, res, next) {
 
   // console.log(req.body);
   var mailOptions = {
-    // from: 'hbiao68@yeah.net', // login user must equel to this user
-    from: '939706250@qq.com', // login user must equel to this user
-    // to: 'hbiao68@yeah.net',
+    from: 'req.body.emailaddress', // login user must equel to this user
     to: 'xrj0830@gmail.com',
-    // 邮件主题
     subject: 'You have a new uploaded file',
-    // 邮件内容
     html: userInputInfo
   };
   transporter.sendMail(mailOptions, function (error, info) {
@@ -63,19 +57,9 @@ router.post('/send', function (req, res, next) {
   res.status(200).json({message: req.body.firstname});
 });
 
-/*
-* 测试发送ajax请求，返回JSON给前台
-* */
-router.get('/ajax', function (req, res, next) {
-  res.json(200, {
-    "username": "黄彪",
-    "pwd": "123456"
-  });
-});
-
 router.post('/upload',upload.any(), function(req, res, next) {
   console.log("/mail/upload");
-  console.log(req.files);  // 上传的文件信息
+  console.log(req.files); 
 
   var fileName = "f" + new Date().getTime()+Math.floor(Math.random(1000)*1000) + getFileTypeName(req.files[0].originalname)
   var des_file = "./backend/uploadfile/" + fileName;
@@ -97,7 +81,6 @@ router.post('/upload',upload.any(), function(req, res, next) {
   });
 });
 
-// 测试post请求用户传递过来的数据
 router.post('/post', function (req, res, next) {
   res.json(200, {
     "body": req.body,
@@ -106,7 +89,6 @@ router.post('/post', function (req, res, next) {
   });
 });
 
-// 测试get请求 用户传递过来的参数
 router.get('/get', function (req, res, next) {
   res.json(200, {
     "body": req.body,

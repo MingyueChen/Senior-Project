@@ -3,15 +3,13 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar, MatSnackBarConfig  } from '@angular/material';
 import {of, fromEvent} from 'rxjs';
 import { DialogService, BuiltInOptions } from 'ngx-bootstrap-modal';
-
-
-import { Headers, Http, RequestOptions, URLSearchParams } from '@angular/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Router } from '@angular/router';
 
 
 @Injectable({providedIn: 'root'})
 export class ContactService {
-  constructor (private http: Http, private router: Router ) {}
+  constructor (private http: HttpClient, private router: Router ) {}
   sendContact(firstName, lastName, emailAddress, phoneNumber, message) {
     if (firstName === '' || firstName === undefined || firstName === null) {
       alert('firstname could not be empty!');
@@ -27,11 +25,12 @@ export class ContactService {
       let msg = 'firstname=' + firstName + '&lastname=' + lastName;
       msg = msg + '&emailaddress=' + emailAddress + '&phonenumber=' + phoneNumber + '&message=' + message;
       console.log(msg);
-      const headers = new Headers();
-      headers.append('Content-Type', 'application/x-www-form-urlencoded');
-      this.http.post('http://localhost:3000/send', msg, {
-        headers: headers
-      }).pipe(res => res).subscribe(
+      const headers = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+        })
+      };
+      this.http.post('http://localhost:3000/mail/send', msg, headers).subscribe(
         data => {
           console.log(data);
         }

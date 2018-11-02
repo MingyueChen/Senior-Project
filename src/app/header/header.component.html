@@ -11,10 +11,16 @@
                     <a class="nav-link" routerLink="/" routerLinkActive = "router-link-active" [routerLinkActiveOptions]="{exact:
                       true}"><h6>Home</h6> <span class="sr-only">(current)</span></a>
                   </li>
+                  <!--<li class="nav-item">-->
+                    <!--<a class="nav-link" routerLink="/contactUs" routerLinkActive = "router-link-active" [routerLinkActiveOptions]="{exact:-->
+                      <!--true}" ><h6>Contact Us</h6></a>-->
+                  <!--</li>-->
+
                   <li class="nav-item">
                     <a class="nav-link" routerLink="/contactUs" routerLinkActive = "router-link-active" [routerLinkActiveOptions]="{exact:
                       true}" ><h6>Contact Us</h6></a>
                   </li>
+
                     <li class="nav-item">
                         <a class="nav-link" routerLink="/userList" routerLinkActive = "router-link-active" [routerLinkActiveOptions]="{exact:
                       true}" ><h6>Our Client</h6></a>
@@ -22,6 +28,10 @@
                   <li class="nav-item">
                     <a class="nav-link" routerLink="/officeLocation" routerLinkActive = "router-link-active" [routerLinkActiveOptions]="{exact:
                       true}" ><h6>Office Location</h6></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" routerLink="/CustominfoUploadComponent" routerLinkActive = "router-link-active" [routerLinkActiveOptions]="{exact:
+                      true}" ><h6>Upload File</h6></a>
                   </li>
                 </ul>
                 <a *ngIf="!adminIsAuthenticated" class="btn btn-outline-primary my-2 my-sm-0" routerLink="/signup" routerLinkActive = "router-link-active" [routerLinkActiveOptions]="{exact:

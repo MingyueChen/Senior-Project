@@ -4,8 +4,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { NgModule } from '@angular/core';
 import {  FormsModule } from '@angular/forms';
-import { HttpModule} from '@angular/http';
 import { MatSnackBarModule, MatDialogModule } from '@angular/material';
+import { FileUploadModule } from 'ng2-file-upload';
 
 import { AppComponent } from './app.component';
 import { HomeCreateComponent } from './home/home-create/home-create.component';
@@ -29,6 +29,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { ErrorInterceptor } from './error.interceptor';
 import { ErrorComponent } from './error/error.component';
 import { MatDialog } from '@angular/material';
+import { CustominfoUploadComponent } from './custominfo-upload/custominfo-upload.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,8 @@ import { MatDialog } from '@angular/material';
     LoginComponent,
     SignupComponent,
     UserListComponent,
-    ErrorComponent
+    ErrorComponent,
+    CustominfoUploadComponent
   ],
   imports: [
     BrowserModule,
@@ -48,12 +50,12 @@ import { MatDialog } from '@angular/material';
     AppRoutingModule,
     HttpClientModule,
     DataTablesModule,
-    HttpModule,
     MatSnackBarModule,
     MatDialogModule,
     NgbModule,
     BrowserModule,
     BrowserAnimationsModule,
+    FileUploadModule,
     NgbModule.forRoot()
   ],
   providers: [ContactService,

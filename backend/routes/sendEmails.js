@@ -29,8 +29,8 @@ router.post('/send', function (req, res, next) {
     service: 'qq',
     secure: true,
     auth: {
-      user: '2242135581@qq.com',
-      pass: 'dfdwfocduipyeacd'
+      user: '2242135581@qq.com',  // 2242135581@qq.com
+      pass: 'dfdwfocduipyeacd'    // dfdwfocduipyeacd
     }
   });
 
@@ -43,8 +43,8 @@ router.post('/send', function (req, res, next) {
 
   // console.log(req.body);
   var mailOptions = {
-    from: '2242135581@qq.com', // login user must equel to this user
-    to: 'xrj0830@gmail.com',
+    from: '2242135581@qq.com', // login user must equal to this user
+    to: 'xrj0830@gmail.com',  // xrj0830@gmail.com
     subject: 'You have a new uploaded file',
     html: userInputInfo
   };

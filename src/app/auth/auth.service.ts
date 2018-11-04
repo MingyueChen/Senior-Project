@@ -32,7 +32,7 @@ export class AuthService {
     this.http.post('http://localhost:3000/api/admin/signup', authData).subscribe(() => {
       this.router.navigate(['/login']);
     }, error => {
-      console.log(error);
+      // console.log(error);
       this.router.navigate(['/signup']);
       this.authStatusListener.next(false);
     });
@@ -59,7 +59,7 @@ export class AuthService {
           this.router.navigate(['/']);
         }
       }, error => {
-        console.log(error);
+        // console.log(error);
         this.router.navigate(['/login']);
         this.authStatusListener.next(false);
       });
@@ -91,7 +91,7 @@ export class AuthService {
   }
 
   private setAuthTimer(duration: number) {
-    console.log('Setting timer: ' + duration);
+    // console.log('Setting timer: ' + duration);
     this.tokenTimer = setTimeout (() => {
       this.logout();
     }, duration * 1000);

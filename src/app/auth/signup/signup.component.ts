@@ -24,11 +24,11 @@ export class SignupComponent implements OnInit, OnDestroy {
     if (form.invalid) {
       return;
     }
-    if (! (form.value.email.includes('@kattell.com'))) {
-      this.isKaEmail = false;
-      console.log(form.value.email);
-      return;
-    }
+    // if (! (form.value.email.includes('@kattell.com'))) {
+    //   this.isKaEmail = false;
+    //   console.log(form.value.email);
+    //   return;
+    // }
     this.isKaEmail = true;
     this.authService.createAdmin(form.value.email, form.value.password);
   }

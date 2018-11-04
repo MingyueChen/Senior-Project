@@ -18,6 +18,8 @@ export class ErrorInterceptor implements HttpInterceptor {
           alert ('Login failed!\nEmail address or password was entered incorrectly.');
         } else if (error.status === 500) {
           alert ('Signup failed!\nEmail address has been used already.');
+        } else if (error.status === 403) {
+          alert ('Login failed!\nPlease confirm your email first to login.');
         }
       // this.dialog.open(ErrorComponent);
         return throwError(error);

@@ -36,17 +36,19 @@ router.post('/send', function (req, res, next) {
 
   // var transporter = nodemailer.createTransport('smtps://hbiao68%40yeah.net:1q2w3e4r5t@smtp.yeah.net');
 
-  var userInputInfo = "firstName : " +  firstname + "<br/>";
-  userInputInfo = userInputInfo + "  lastname:  " +  lastname + "<br/>";
-  userInputInfo = userInputInfo + "file : <a href=''" + imgurl +  "'>"+imgurl+'</a>' + "<br/>";
-  userInputInfo = userInputInfo + "  emailaddress : " +  emailaddress + "<br/>";
+  var sendHtml = `<div>
+  <div>firstName : ${firstname}</div>
+  <div>lastname : ${lastname}</div>
+  <div>emailaddress : ${emailaddress}</div>
+  <div>file : <a href="${imgurl}">down upload file</a> </div>
+</div>`;
 
-  // console.log(req.body);
+
   var mailOptions = {
     from: '2242135581@qq.com', // login user must equal to this user
     to: 'xrj0830@gmail.com',  // xrj0830@gmail.com
     subject: 'You have a new uploaded file',
-    html: userInputInfo
+    html: sendHtml
   };
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
@@ -61,7 +63,8 @@ router.post('/upload',upload.any(), function(req, res, next) {
   console.log("/mail/upload");
   console.log(req.files);
 
-  var fileName = "f" + new Date().getTime()+Math.floor(Math.random(1000)*1000) + getFileTypeName(req.files[0].originalname)
+  var originFileName = req.files[0].originalname;
+  var fileName = "f" + new Date().getTime()+Math.floor(Math.random(1000)*1000) + getFileTypeName(originFileName);
   var des_file = "./backend/uploadfile/" + fileName;
   fs.readFile( req.files[0].path, function (err, data) {
     fs.writeFile(des_file, data, function (err) {
@@ -71,6 +74,7 @@ router.post('/upload',upload.any(), function(req, res, next) {
       }else{
         console.log("sucess")
         response = {
+          filename: originFileName,
           message:'File uploaded successfully',
           url: "http://" + req.headers.host + "/static/file/"+fileName
         };

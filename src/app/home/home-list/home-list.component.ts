@@ -3,11 +3,12 @@ import { HomeService } from '../home.service';
 import { EmployeeInfo } from '../home.model';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../../auth/auth.service';
+declare var $: any;
 
 @Component({
   selector: 'app-home-list',
   templateUrl: './home-list.component.html',
-  styleUrls: ['./home-list.component.css']
+  styleUrls: ['./home-list.component.scss']
 })
 export class HomeListComponent implements OnInit, OnDestroy {
 
@@ -21,6 +22,26 @@ export class HomeListComponent implements OnInit, OnDestroy {
   constructor(public homeService: HomeService, private authService: AuthService) { }
 
   ngOnInit() {
+
+    $('#slide-img-container').sliderPro({
+      width: 960,
+      height: 500,
+      arrows: true,
+      buttons: false,
+      waitForLayers: true,
+      thumbnailWidth: 200,
+      thumbnailHeight: 100,
+      thumbnailPointer: true,
+      autoplay: false,
+      autoScaleLayers: false,
+      breakpoints: {
+        500: {
+          thumbnailWidth: 120,
+          thumbnailHeight: 50
+        }
+      }
+    });
+
     this.homeService.getInfo();
     // 1st argument in subscribe: a function which is called whenever a new value was received
     this.homeSub = this.homeService.getInfoUpdateListener()

@@ -1,58 +1,275 @@
-
-<div align="center">
+<div class="home-list-component">
+  <div class="company-title">
     <h2>Welcome to Kattell and Company, P.L.</h2>
     <h6> A professional accounting firm serving the nonprofit community.</h6>
   </div>
 
-<div class = "card mx-auto" id="homeCard" style="max-width: 75%;" align = "center">
+  <div id="slide-img-container" class="slider-pro">
+    <div class="sp-slides">
+      <div class="sp-slide">
+        <img class="sp-image" src="../src/css/images/blank.gif"
+             data-src="http://bqworks.com/slider-pro/images/image1_medium.jpg"
+             data-retina="http://bqworks.com/slider-pro/images/image1_large.jpg"/>
 
+        <p class="sp-layer sp-white sp-padding"
+           data-horizontal="50" data-vertical="50"
+           data-show-transition="left" data-hide-transition="up" data-show-delay="400" data-hide-delay="200">
+          Lorem ipsum
+        </p>
 
+        <p class="sp-layer sp-black sp-padding hide-small-screen"
+           data-horizontal="180" data-vertical="50"
+           data-show-transition="left" data-hide-transition="up" data-show-delay="600" data-hide-delay="100">
+          dolor sit amet
+        </p>
 
-  <div class="row">
-      <div class="col-sm-6">
-          <div class="card bg-light mb-3" >
-              <div class="card-header">Email Addresses </div>
-
-              <div class="card-body" *ngIf = "employeeInfo.length > 0">
-                <p class="card-text" *ngFor="let einfo of employeeInfo">
-                    {{ einfo.employeeName }} - {{ einfo.employeeEmail }}
-                    <br />
-                    <a *ngIf="adminIsAuthenticated" class="btn btn-info btn-sm" [routerLink]="['/edit', einfo.employeeID]">EDIT <i class="fa fa-pencil-square-o" aria-hidden="true"></i> </a>
-                    <button *ngIf="adminIsAuthenticated" class="btn btn-danger btn-sm" (click)="onDelete(einfo.employeeID)">DELETE <i class="fa fa-times" aria-hidden="true"></i></button>
-                </p>
-                <div *ngIf="adminIsAuthenticated" align = "center">
-                    <a class="btn btn-primary" role="button" routerLink="/addEmployeeInfo" routerLinkActive = "router-link-active" [routerLinkActiveOptions]="{exact:
-                      true}" ><h6>Add new Employee Info</h6></a>
-                 </div>
-              </div>
-              <div class="card-body" *ngIf = "employeeInfo.length <= 0">
-                  <p class="card-text">No Employee Information</p>
-                  <div *ngIf="adminIsAuthenticated"  align = "center">
-                      <a class="btn btn-primary" role="button" routerLink="/addEmployeeInfo" routerLinkActive = "router-link-active" [routerLinkActiveOptions]="{exact:
-                        true}" ><h6>Add new Employee Info</h6></a>
-                  </div>
-              </div>
-          </div>
+        <p class="sp-layer sp-white sp-padding hide-medium-screen"
+           data-horizontal="315" data-vertical="50"
+           data-show-transition="left" data-hide-transition="up" data-show-delay="800">
+          consectetur adipisicing elit.
+        </p>
       </div>
-      <div class="col-sm-6">
-       <div class="card bg-light mb-3">
-              <div class="card-header">Company Info</div>
-              <div class="card-body">
-                <p class="card-text">
-                    808-B NW 16th Avenue
-                    Gainesville, Florida 32601 <br/>
-                    Telephone: (352) 395-6565 <br/>
-                    Facsimile:  (352) 395-6636
-                </p>
-              </div>
-          </div>
+
+      <div class="sp-slide">
+        <img class="sp-image" src="../src/css/images/blank.gif"
+             data-src="http://bqworks.com/slider-pro/images/image2_medium.jpg"
+             data-retina="http://bqworks.com/slider-pro/images/image2_large.jpg"/>
+
+        <h3 class="sp-layer sp-black sp-padding"
+            data-horizontal="40" data-vertical="10%"
+            data-show-transition="left" data-hide-transition="left">
+          Lorem ipsum dolor sit amet
+        </h3>
+
+        <p class="sp-layer sp-white sp-padding hide-medium-screen"
+           data-horizontal="40" data-vertical="22%"
+           data-show-transition="left" data-show-delay="200" data-hide-transition="left" data-hide-delay="200">
+          consectetur adipisicing elit
+        </p>
+
+        <p class="sp-layer sp-black sp-padding hide-small-screen"
+           data-horizontal="40" data-vertical="34%" data-width="350"
+           data-show-transition="left" data-show-delay="400" data-hide-transition="left" data-hide-delay="500">
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+      </div>
+
+      <div class="sp-slide">
+        <img class="sp-image" src="../src/css/images/blank.gif"
+             data-src="http://bqworks.com/slider-pro/images/image3_medium.jpg"
+             data-retina="http://bqworks.com/slider-pro/images/image3_large.jpg"/>
+
+        <p class="sp-layer sp-white sp-padding"
+           data-position="centerCenter" data-vertical="-50"
+           data-show-transition="right" data-hide-transition="left" data-show-delay="500" >
+          Lorem ipsum dolor sit amet
+        </p>
+
+        <p class="sp-layer sp-black sp-padding hide-small-screen"
+           data-position="centerCenter" data-vertical="50"
+           data-show-transition="left" data-show-delay="700" data-hide-transition="right" data-hide-delay="200">
+          consectetur adipisicing elit
+        </p>
+      </div>
+
+      <div class="sp-slide">
+        <img class="sp-image" src="../src/css/images/blank.gif"
+             data-src="http://bqworks.com/slider-pro/images/image4_medium.jpg"
+             data-retina="http://bqworks.com/slider-pro/images/image4_large.jpg"/>
+
+        <p class="sp-layer sp-black sp-padding"
+           data-position="bottomLeft"
+           data-show-transition="up" data-hide-transition="down">
+          Lorem ipsum dolor sit amet <span class="hide-small-screen">, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span> <span class="hide-medium-screen">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+        </p>
+      </div>
+
+      <div class="sp-slide">
+        <img class="sp-image" src="../src/css/images/blank.gif"
+             data-src="http://bqworks.com/slider-pro/images/image5_medium.jpg"
+             data-retina="http://bqworks.com/slider-pro/images/image5_large.jpg"/>
+
+        <p class="sp-layer sp-white sp-padding"
+           data-vertical="10" data-horizontal="2%" data-width="96%"
+           data-show-transition="down" data-show-delay="400" data-hide-transition="up">
+          Lorem ipsum dolor sit amet <span class="hide-small-screen">, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span> <span class="hide-medium-screen">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+        </p>
+      </div>
+
+      <div class="sp-slide">
+        <img class="sp-image" src="../src/css/images/blank.gif"
+             data-src="http://bqworks.com/slider-pro/images/image6_medium.jpg"
+             data-retina="http://bqworks.com/slider-pro/images/image6_large.jpg"/>
+
+        <p class="sp-layer sp-white sp-padding"
+           data-horizontal="10" data-vertical="10" data-width="35%">
+          Lorem ipsum dolor sit amet <span class="hide-small-screen">, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span> <span class="hide-medium-screen">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+        </p>
+      </div>
+
+      <div class="sp-slide">
+        <img class="sp-image" src="../src/css/images/blank.gif"
+             data-src="http://bqworks.com/slider-pro/images/image7_medium.jpg"
+             data-retina="http://bqworks.com/slider-pro/images/image7_large.jpg"/>
+
+        <p class="sp-layer sp-black sp-padding"
+           data-position="bottomLeft" data-vertical="10" data-horizontal="2%" data-width="96%"
+           data-show-transition="up" data-show-delay="400" data-hide-transition="down">
+          Lorem ipsum dolor sit amet <span class="hide-small-screen">, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span> <span class="hide-medium-screen">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+        </p>
+      </div>
+
+      <div class="sp-slide">
+        <img class="sp-image" src="../src/css/images/blank.gif"
+             data-src="http://bqworks.com/slider-pro/images/image8_medium.jpg"
+             data-retina="http://bqworks.com/slider-pro/images/image8_large.jpg"/>
+      </div>
+
+      <div class="sp-slide">
+        <img class="sp-image" src="../src/css/images/blank.gif"
+             data-src="http://bqworks.com/slider-pro/images/image9_medium.jpg"
+             data-retina="http://bqworks.com/slider-pro/images/image9_large.jpg"/>
+
+        <p class="sp-layer sp-black sp-padding"
+           data-position="bottomLeft" data-horizontal="50" data-vertical="100"
+           data-show-transition="down" data-show-delay="500" data-hide-transition="up">
+          Lorem ipsum dolor sit amet
+        </p>
+
+        <p class="sp-layer sp-white sp-padding hide-small-screen"
+           data-position="bottomLeft" data-horizontal="50" data-vertical="50"
+           data-show-transition="up" data-show-delay="500" data-hide-transition="down">
+          consectetur adipisicing elit <span class="hide-medium-screen">, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+        </p>
+      </div>
+
+      <div class="sp-slide">
+        <img class="sp-image" src="../src/css/images/blank.gif"
+             data-src="http://bqworks.com/slider-pro/images/image10_medium.jpg"
+             data-retina="http://bqworks.com/slider-pro/images/image10_large.jpg"/>
+      </div>
+    </div>
+    <div class="sp-thumbnails">
+      <div class="sp-thumbnail">
+        <div class="sp-thumbnail-title">Lorem ipsum</div>
+        <div class="sp-thumbnail-description">Dolor sit amet, consectetur adipiscing elit sed</div>
+      </div>
+
+      <div class="sp-thumbnail">
+        <div class="sp-thumbnail-title">Do eiusmod</div>
+        <div class="sp-thumbnail-description">Tempor incididunt ut labore et dolore magna aliqua</div>
+      </div>
+
+      <div class="sp-thumbnail">
+        <div class="sp-thumbnail-title">Ut enim</div>
+        <div class="sp-thumbnail-description">Ad minim veniam, quis nostrud exercitation</div>
+      </div>
+
+      <div class="sp-thumbnail">
+        <div class="sp-thumbnail-title">Ullamco oris</div>
+        <div class="sp-thumbnail-description">Nisi ut aliquip ex ea commodo consequat</div>
+      </div>
+
+      <div class="sp-thumbnail">
+        <div class="sp-thumbnail-title">Duis aute</div>
+        <div class="sp-thumbnail-description">Irure dolor in reprehenderit in voluptate velit</div>
+      </div>
+
+      <div class="sp-thumbnail">
+        <div class="sp-thumbnail-title">Esse cillum</div>
+        <div class="sp-thumbnail-description">Dolore eu fugiat nulla pariatur excepteur</div>
+      </div>
+
+      <div class="sp-thumbnail">
+        <div class="sp-thumbnail-title">Sint occaecat</div>
+        <div class="sp-thumbnail-description">Cupidatat non proident, sunt in culpa qui officia</div>
+      </div>
+
+      <div class="sp-thumbnail">
+        <div class="sp-thumbnail-title">Deserunt</div>
+        <div class="sp-thumbnail-description">Mollit anim id est laborum sed ut perspiciatis</div>
+      </div>
+
+      <div class="sp-thumbnail">
+        <div class="sp-thumbnail-title">Unde omnis</div>
+        <div class="sp-thumbnail-description">Iste natus error sit voluptatem doloremque</div>
+      </div>
+
+      <div class="sp-thumbnail">
+        <div class="sp-thumbnail-title">Laudantium</div>
+        <div class="sp-thumbnail-description">Totam rem aperiam, eaque ipsa quae ab illo</div>
       </div>
     </div>
   </div>
 
-<style>
-body {
-    background-color: lightblue;
-}
-</style>
+  <div class="service-intro-container">
+    <div class="show_item_left ">
+      <img src="https://images.metinfo.cn/m/mui401/356/upload/mui401/356/thumb_src/500_400/1540610365.jpg"
+           class="service-img">
+    </div>
+    <div class="show_item_right ">
+      <div>Kattell and Company provides the highest quality accounting and auditing services exclusively to not-for-profit organizations.</div>
+      <div>Our focus is not-for-profit organizations. This is what we know, it's what we are good at, and it's what we like to do.</div>
+      <div>As you can see from Steve's resume, the majority of his professional career has been devoted to gaining nonprofit specific knowledge and experience. Our professionals know more about not-for-profit accounting and auditing than any others. That's where all our work is, it's where all of our training is focused.</div>
+      <div> A wise mentor once told a young CPA, "All we have to offer is knowledge - knowledge about our clients and their industry. If you don't have that, you don't have anything."</div>
+      <div>Our exclusive focus is unlike any other in north central Florida. It's one of the aspects of Kattell and Company that sets us apart.</div>
+      <div>The Right Choice. Why does this make Kattell and Company the right choice for you? We take our industry specific knowledge and put it to work for you.</div>
+    </div>
+  </div>
+
+  <div class="row company-info-container">
+    <div class="col-sm-6" style="padding-left: 0">
+      <div class="card bg-light mb-3">
+        <div class="card-header">Email Addresses</div>
+
+        <div class="card-body" *ngIf="employeeInfo.length > 0">
+          <p class="card-text" *ngFor="let einfo of employeeInfo">
+            {{ einfo.employeeName }} - {{ einfo.employeeEmail }}
+            <br/>
+            <a *ngIf="adminIsAuthenticated" class="btn btn-info btn-sm" [routerLink]="['/edit', einfo.employeeID]">EDIT
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i> </a>
+            <button *ngIf="adminIsAuthenticated" class="btn btn-danger btn-sm" (click)="onDelete(einfo.employeeID)">
+              DELETE <i class="fa fa-times" aria-hidden="true"></i></button>
+          </p>
+          <div *ngIf="adminIsAuthenticated" align="center">
+            <a class="btn btn-primary" role="button" routerLink="/addEmployeeInfo" routerLinkActive="router-link-active"
+               [routerLinkActiveOptions]="{exact:
+                      true}"><h6>Add new Employee Info</h6></a>
+          </div>
+        </div>
+        <div class="card-body" *ngIf="employeeInfo.length <= 0">
+          <p class="card-text">No Employee Information</p>
+          <div *ngIf="adminIsAuthenticated" align="center">
+            <a class="btn btn-primary" role="button" routerLink="/addEmployeeInfo" routerLinkActive="router-link-active"
+               [routerLinkActiveOptions]="{exact:
+                        true}"><h6>Add new Employee Info</h6></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6" style="padding-right: 0;">
+      <div class="card bg-light mb-3">
+        <div class="card-header">Company Info</div>
+        <div class="card-body">
+          <p class="card-text">
+            808-B NW 16th Avenue
+            Gainesville, Florida 32601 <br/>
+            Telephone: (352) 395-6565 <br/>
+            Facsimile: (352) 395-6636
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="card mx-auto homeCard">
+
+
+  </div>
+</div>
+
+
 

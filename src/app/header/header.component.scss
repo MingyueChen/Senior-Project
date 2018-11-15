@@ -1,0 +1,35 @@
+.header-component{
+  .router-link-active {
+    border: 2px solid;
+    background-color:  rgb(44, 112, 135);
+    font-weight: bold;
+  }
+
+  .nav-link{
+    h6 {
+      color: white;
+      margin-bottom: 0;
+    }
+  }
+  .signup-btn{
+    color: #fff;
+    border-color: #fff;
+    margin-right: 12px;
+    h6 {
+      margin-bottom: 0;
+    }
+  }
+  .login-btn{
+    color: #fff;
+    border-color: #fff;
+    h6 {
+      margin-bottom: 0;
+    }
+  }
+}
+
+
+
+
+
+

@@ -30,6 +30,8 @@ import { ErrorInterceptor } from './error.interceptor';
 import { ErrorComponent } from './error/error.component';
 import { MatDialog } from '@angular/material';
 import { CustominfoUploadComponent } from './custominfo-upload/custominfo-upload.component';
+import { TestimonialsCreateComponent } from './testimonials/testimonials-create/testimonials-create.component';
+import { TestimonialsListComponent } from './testimonials/testimonials-list/testimonials-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +44,9 @@ import { CustominfoUploadComponent } from './custominfo-upload/custominfo-upload
     SignupComponent,
     UserListComponent,
     ErrorComponent,
-    CustominfoUploadComponent
+    CustominfoUploadComponent,
+    TestimonialsCreateComponent,
+    TestimonialsListComponent
   ],
   imports: [
     BrowserModule,

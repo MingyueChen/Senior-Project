@@ -33,6 +33,22 @@ bcryptjs.genSalt(saltRounds, function(err, salt) {
     }); // end of create admin model
     admin.save()
       .then (result => {
+        // send an email
+        jwt.sign(
+          {admin_id: admin._id},
+          "secret_pw_kattell_and_company_mrcx020996",
+          {expiresIn: "1d"},
+          (err, emailToken) => {
+            const url = 'http://localhost:3000/admin/confirmation/'+emailToken;
+            transporter.sendMail({
+              from: 'mingyuehappy@gmail.com',
+              to: admin.email,
+              subject: 'Confirm Email',
+              html: `Please click this link to confirm your email: <a href="${url}">Click Here</a>`
+            }); // end of sendMail
+          }, // end of {err, emailToken}
+        ); // end of jwt.sign()
+
         res.status(201).json({
           message: 'Admin created!',
           result: result
@@ -43,23 +59,6 @@ bcryptjs.genSalt(saltRounds, function(err, salt) {
           error: err
         }); // end of status(500)
       }); // end of catch
-
-      // send an email
-      jwt.sign(
-        {admin_id: admin._id},
-        "secret_pw_kattell_and_company_mrcx020996",
-        {expiresIn: "1d"},
-        (err, emailToken) => {
-          const url = 'http://localhost:3000/api/admin/confirmation/'+emailToken;
-
-          transporter.sendMail({
-            from: 'mingyuehappy@gmail.com',
-            to: admin.email,
-            subject: 'Confirm Email',
-            html: `Please click this link to confirm your email: <a href="${url}">Click Here</a>`
-          }); // end of sendMail
-        }, // end of {err, emailToken}
-      ); // end of jwt.sign()
 
     }); // end of bcryptjs.hash
   }); // bcryptjs.genSalt

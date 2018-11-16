@@ -29,7 +29,7 @@ export class AuthService {
       email: email,
       password: password
     }; // end of create authData
-    this.http.post('http://localhost:3000/api/admin/signup', authData).subscribe(() => {
+    this.http.post('http://localhost:3000/admin/signup', authData).subscribe(() => {
       this.router.navigate(['/login']);
     }, error => {
       // console.log(error);
@@ -43,7 +43,7 @@ export class AuthService {
       email: email,
       password: password
     }; // end of create authData
-    this.http.post<{token: string, expiresIn: number}>('http://localhost:3000/api/admin/login', authData)
+    this.http.post<{token: string, expiresIn: number}>('http://localhost:3000/admin/login', authData)
       .subscribe(response => {
         // the response is the token
         const token = response.token;

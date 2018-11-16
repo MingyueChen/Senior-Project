@@ -14,7 +14,7 @@ import { OfficeLocationComponent } from './office-location/office-location.compo
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { AgmCoreModule } from '@agm/core';
 
 import { DataTablesModule } from 'angular-datatables';
 import { HomeListComponent } from './home/home-list/home-list.component';
@@ -53,6 +53,9 @@ import { CustominfoUploadComponent } from './custominfo-upload/custominfo-upload
     MatSnackBarModule,
     MatDialogModule,
     NgbModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCpegHJIX14436l7SN4dFdGkaGXz9NgWWA'
+    }),
     BrowserModule,
     BrowserAnimationsModule,
     FileUploadModule,

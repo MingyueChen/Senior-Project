@@ -52,8 +52,9 @@
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
+    "@agm/core": "^1.0.0-beta.5",
     "@angular-devkit/build-angular": "^0.8.6",
-    "@angular/cli": "~6.2.1",
+    "@angular/cli": "^6.2.7",
     "@angular/compiler-cli": "^7.0.2",
     "@angular/language-service": "^7.0.2",
     "@types/datatables.net": "^1.10.13",

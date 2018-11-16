@@ -202,7 +202,7 @@
     </div>
   </div>
 
-  <div class="service-intro-container">
+  <div class="service-intro-container" style="display: none">
     <div class="show_item_left ">
       <img src="https://images.metinfo.cn/m/mui401/356/upload/mui401/356/thumb_src/500_400/1540610365.jpg"
            class="service-img">
@@ -218,7 +218,26 @@
   </div>
 
   <div class="row company-info-container">
-    <div class="col-sm-6" style="padding-left: 0">
+
+    <div class="col-sm-6" style="padding-left: 0;height: 292px;overflow: hidden;">
+      <agm-map [latitude]="latitude" [zoom]="zoom" [longitude]="longitude" style="height: 500px;width: 100%;">
+        <agm-marker [latitude]="latitude" [longitude]="longitude" (markerClick)="markerClick()"></agm-marker>
+      </agm-map>
+    </div>
+
+    <div class="col-sm-6" style="padding-right: 0;">
+      <div class="card bg-light mb-3">
+        <div class="card-header">Company Info</div>
+        <div class="card-body">
+          <p class="card-text">
+            808-B NW 16th Avenue
+            Gainesville, Florida 32601 <br/>
+            Telephone: (352) 395-6565 <br/>
+            Facsimile: (352) 395-6636
+          </p>
+        </div>
+      </div>
+
       <div class="card bg-light mb-3">
         <div class="card-header">Email Addresses</div>
 
@@ -244,20 +263,6 @@
                [routerLinkActiveOptions]="{exact:
                         true}"><h6>Add new Employee Info</h6></a>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-6" style="padding-right: 0;">
-      <div class="card bg-light mb-3">
-        <div class="card-header">Company Info</div>
-        <div class="card-body">
-          <p class="card-text">
-            808-B NW 16th Avenue
-            Gainesville, Florida 32601 <br/>
-            Telephone: (352) 395-6565 <br/>
-            Facsimile: (352) 395-6636
-          </p>
         </div>
       </div>
     </div>

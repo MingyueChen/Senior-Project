@@ -1,16 +1,20 @@
 .home-list-component{
+  width: 100%;
+  max-width: 1200px;
+  min-width: 320px;
+  margin: 0 auto;
   .company-title{
     text-align: center;
   }
   .company-info-container{
-    width: 60%;
+    width: 100%;
     margin: 0 auto;
     max-width: 960px;
     margin-top: 12px;
   }
 
   .service-intro-container{
-    width: 60%;
+    width: 100%;
     margin: 0 auto;
     max-width: 960px;
     margin-top: 12px;

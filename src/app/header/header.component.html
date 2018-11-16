@@ -21,16 +21,21 @@
         <a class="nav-link" routerLink="/userList" routerLinkActive="router-link-active" [routerLinkActiveOptions]="{exact:
                       true}"><h6>Our Client</h6></a>
       </li>
-      <!--<li class="nav-item">-->
-        <!--<a class="nav-link" routerLink="/officeLocation" routerLinkActive="router-link-active"-->
-           <!--[routerLinkActiveOptions]="{exact:-->
-                      <!--true}"><h6>Office Location</h6></a>-->
-      <!--</li>-->
+      <!-- <li class="nav-item">
+        <a class="nav-link" routerLink="/officeLocation" routerLinkActive="router-link-active"
+           [routerLinkActiveOptions]="{exact:
+                      true}"><h6>Office Location</h6></a>
+      </li> -->
       <li class="nav-item">
         <a class="nav-link" routerLink="/CustominfoUploadComponent" routerLinkActive="router-link-active"
            [routerLinkActiveOptions]="{exact:
                       true}"><h6>Upload File</h6></a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/testimonials" routerLinkActive = "router-link-active" [routerLinkActiveOptions]="{exact:
+          true}" ><h6>Testimonials</h6></a>
+      </li>
+
     </ul>
     <a *ngIf="!adminIsAuthenticated" class="btn btn-outline-primary my-2 my-sm-0 signup-btn" routerLink="/signup"
        routerLinkActive="router-link-active" [routerLinkActiveOptions]="{exact:
@@ -40,7 +45,7 @@
        routerLinkActive="router-link-active" [routerLinkActiveOptions]="{exact:
                   true}"><h6>Log In</h6></a>
 
-    <button *ngIf="adminIsAuthenticated" class="btn btn-outline-primary my-2 my-sm-0" (click)="onLogout()">Log Out
+    <button *ngIf="adminIsAuthenticated" class="btn btn-outline-light my-2 my-sm-0 logout-btn" (click)="onLogout()"><h6>Log Out</h6>
     </button>
   </div> <!--end of second group div-->
 </nav>

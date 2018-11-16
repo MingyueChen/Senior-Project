@@ -34,7 +34,7 @@ app.use((req, res, next) => {
 
 app.use('', employeeInfosRoutes);
 app.use('/mail', sendEmailsRoutes);
-app.use('/api/admin', adminRoutes);
+app.use('/admin', adminRoutes);
 app.use("/static/file",express.static(path.join(__dirname, 'uploadfile')));
 module.exports = app;
 

@@ -14,7 +14,7 @@ import { OfficeLocationComponent } from './office-location/office-location.compo
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { AgmCoreModule } from '@agm/core';
 
 import { DataTablesModule } from 'angular-datatables';
 import { HomeListComponent } from './home/home-list/home-list.component';
@@ -30,8 +30,6 @@ import { ErrorInterceptor } from './error.interceptor';
 import { ErrorComponent } from './error/error.component';
 import { MatDialog } from '@angular/material';
 import { CustominfoUploadComponent } from './custominfo-upload/custominfo-upload.component';
-import { TestimonialsCreateComponent } from './testimonials/testimonials-create/testimonials-create.component';
-import { TestimonialsListComponent } from './testimonials/testimonials-list/testimonials-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,9 +42,7 @@ import { TestimonialsListComponent } from './testimonials/testimonials-list/test
     SignupComponent,
     UserListComponent,
     ErrorComponent,
-    CustominfoUploadComponent,
-    TestimonialsCreateComponent,
-    TestimonialsListComponent
+    CustominfoUploadComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +53,9 @@ import { TestimonialsListComponent } from './testimonials/testimonials-list/test
     MatSnackBarModule,
     MatDialogModule,
     NgbModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCpegHJIX14436l7SN4dFdGkaGXz9NgWWA'
+    }),
     BrowserModule,
     BrowserAnimationsModule,
     FileUploadModule,

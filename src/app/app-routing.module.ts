@@ -11,8 +11,6 @@ import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { CustominfoUploadComponent } from './custominfo-upload/custominfo-upload.component';
 import { AuthGuard } from './auth/auth.guard';
-import { TestimonialsCreateComponent } from './testimonials/testimonials-create/testimonials-create.component';
-import { TestimonialsListComponent } from './testimonials/testimonials-list/testimonials-list.component';
 
 const routes: Routes = [
   { path: '', component: HomeListComponent },
@@ -23,9 +21,7 @@ const routes: Routes = [
   { path: 'edit/:employeeID', component: HomeCreateComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'CustominfoUploadComponent', component: CustominfoUploadComponent },
-  { path: 'signup', component: SignupComponent },
-  // { path: 'testimonials', component: TestimonialsCreateComponent }
-  { path: 'testimonials', component: TestimonialsListComponent }
+  { path: 'signup', component: SignupComponent }
 ];
 
 @NgModule({

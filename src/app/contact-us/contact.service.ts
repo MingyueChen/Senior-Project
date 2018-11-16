@@ -5,7 +5,9 @@ import {of, fromEvent} from 'rxjs';
 import { DialogService, BuiltInOptions } from 'ngx-bootstrap-modal';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
+const BACKEND_URL = environment.apiUrl;
 
 @Injectable({providedIn: 'root'})
 export class ContactService {
@@ -30,7 +32,7 @@ export class ContactService {
           'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
         })
       };
-      this.http.post('http://localhost:3000/mail/send', msg, headers).subscribe(
+      this.http.post(BACKEND_URL + 'mail/send', msg, headers).subscribe(
         data => {
           console.log(data);
         }

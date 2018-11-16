@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FileUploader, FileItem, ParsedResponseHeaders } from 'ng2-file-upload';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { environment } from '../../environments/environment';
+
+const BACKEND_URL = environment.apiUrl;
 
 @Component({
   selector: 'app-custominfo-upload',
@@ -47,7 +50,7 @@ export class CustominfoUploadComponent implements OnInit {
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
       })
     };
-    this.http.post('http://localhost:3000/mail/send', msg, headers).subscribe(
+    this.http.post(BACKEND_URL + 'mail/send', msg, headers).subscribe(
       data => {
         console.log(data);
       }

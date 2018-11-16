@@ -1,0 +1,6 @@
+{
+  "env": {
+    "MONGO_ATLAS_PW": "YHscIiTW176wx73Y",
+    "JWT_KEY": "secret_pw_kattell_and_company_mrcx020996"
+  }
+}

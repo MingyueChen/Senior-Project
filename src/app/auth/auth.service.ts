@@ -4,6 +4,10 @@ import { AuthData } from './auth-data.model';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 
+import { environment } from '../../environments/environment';
+
+const BACKEND_URL = environment.apiUrl + 'admin/';
+
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private isAuthenticated = false;
@@ -29,7 +33,7 @@ export class AuthService {
       email: email,
       password: password
     }; // end of create authData
-    this.http.post('http://localhost:3000/admin/signup', authData).subscribe(() => {
+    this.http.post(BACKEND_URL + 'signup', authData).subscribe(() => {
       this.router.navigate(['/login']);
     }, error => {
       // console.log(error);
@@ -43,7 +47,7 @@ export class AuthService {
       email: email,
       password: password
     }; // end of create authData
-    this.http.post<{token: string, expiresIn: number}>('http://localhost:3000/admin/login', authData)
+    this.http.post<{token: string, expiresIn: number}>(BACKEND_URL + 'login', authData)
       .subscribe(response => {
         // the response is the token
         const token = response.token;

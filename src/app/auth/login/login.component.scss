@@ -1,4 +1,4 @@
-.signup-component{
+.login-component{
   width: 65%;
   margin: 0 auto;
   max-width: 750px;
@@ -7,7 +7,7 @@
     line-height: 1.8;
   }
 
-  .signup-component-form{
+  .login-component-form{
     border: 1px solid rgba(0, 0, 0, 0.125);
     box-shadow: 0 0 20px 0 rgba(72, 94, 116, 0.7);
     margin-top: 15px;
@@ -22,4 +22,3 @@
     }
   }
 }
-

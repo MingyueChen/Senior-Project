@@ -36,7 +36,7 @@ bcryptjs.genSalt(saltRounds, function(err, salt) {
         // send an email
         jwt.sign(
           {admin_id: admin._id},
-          "secret_pw_kattell_and_company_mrcx020996",
+          process.env.JWT_KEY,
           {expiresIn: "1d"},
           (err, emailToken) => {
             const url = 'http://localhost:3000/admin/confirmation/'+emailToken;
@@ -104,7 +104,7 @@ router.post("/login", (req, res, next) => {
       // we have a successful match and create a json web token
       const token = jwt.sign(
         {email: fetchedAdmin.email, adminID: fetchedAdmin._id},
-        "secret_pw_kattell_and_company_mrcx020996",
+        process.env.JWT_KEY,
         {expiresIn: "1h"}
       ); // end of sign
       res.status(200).json({
@@ -125,7 +125,7 @@ router.post("/login", (req, res, next) => {
 // confirmation route
 router.get("/confirmation/:token", async (req, res) => {
   try {
-    const adminFound = jwt.verify(req.params.token, "secret_pw_kattell_and_company_mrcx020996");
+    const adminFound = jwt.verify(req.params.token, process.env.JWT_KEY);
     //console.log (jwt.verify(req.params.token, "secret_pw_kattell_and_company_mrcx020996"));
     await Admin.updateOne({"_id": adminFound.admin_id}, {$set: {"confirmed": true}});
 

@@ -11,7 +11,7 @@ const adminRoutes = require("./routes/admin");
 
 const app = express(); //return an express app
 
-mongoose.connect("mongodb+srv://Mingyue:YHscIiTW176wx73Y@kattell-and-company-wyfek.mongodb.net/kattell-and-company",{useNewUrlParser: true})
+mongoose.connect("mongodb+srv://Mingyue:" + process.env.MONGO_ATLAS_PW + "@kattell-and-company-wyfek.mongodb.net/kattell-and-company",{useNewUrlParser: true})
 .then(() => {
 
 })

@@ -5,6 +5,10 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
+import { environment } from '../../environments/environment';
+
+const BACKEND_URL = environment.apiUrl;
+
 @Injectable({providedIn: 'root'})
 export class HomeService {
   private employeeInfo: EmployeeInfo[] = [];
@@ -21,7 +25,7 @@ export class HomeService {
     // map expects an argument --- a function which should execute on every data that makes
     // it through observable stream
     // the first map on line 24 is an operator, but the second pipe on line 25 is a normal JavaScript method
-    this.http.get<{message: string, employeeInfo: any}>('http://localhost:3000/')
+    this.http.get<{message: string, employeeInfo: any}>(BACKEND_URL)
     .pipe(map((infoData) => {
       // we want to return an array of employeeInfo
       // this first return (on line 28) will automatically be wrapped into an
@@ -54,7 +58,7 @@ export class HomeService {
   }
 
   getEmployeeInfo(id: string) {
-    return this.http.get <{_id: string, employeeName: string, employeeEmail: string}>('http://localhost:3000/' + id);
+    return this.http.get <{_id: string, employeeName: string, employeeEmail: string}>(BACKEND_URL + id);
   }
 
   addInfo(name: string, email: string) {
@@ -63,7 +67,7 @@ export class HomeService {
       employeeName: name,
       employeeEmail: email
     };
-    this.http.post<{message: string, infoID: string}>('http://localhost:3000/', employeeInfo)
+    this.http.post<{message: string, infoID: string}>(BACKEND_URL, employeeInfo)
     .subscribe((responseData) => {
       const id = responseData.infoID;
       employeeInfo.employeeID = id;
@@ -78,7 +82,7 @@ export class HomeService {
     const employeeInfo = {employeeID: id, employeeEmail: email, employeeName: name};
     // '+id', the id matches the id passed into the function
     // employeeInfo is the const created in this function
-    this.http.put('http://localhost:3000/' + id, employeeInfo).subscribe(response => {
+    this.http.put(BACKEND_URL + id, employeeInfo).subscribe(response => {
       const updatedInfo = [...this.employeeInfo];
       const oldInfoIndex = updatedInfo.findIndex( e => e.employeeID === employeeInfo.employeeID
         );
@@ -90,7 +94,7 @@ export class HomeService {
   }
 
   deleteEmployeeInfo(infoID: string) {
-    this.http.delete('http://localhost:3000/' + infoID)
+    this.http.delete(BACKEND_URL + infoID)
     .subscribe(() => {
       const updatedEmployeeInfo = this. employeeInfo.filter(info => info.employeeID !== infoID );
       this.employeeInfo = updatedEmployeeInfo;

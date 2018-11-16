@@ -8,7 +8,7 @@ module.exports = (req, res, next) => {
   try {
     const token = req.headers.authorization.split(" ")[1];
     //verify a token
-    jwt.verify(token, "secret_pw_kattell_and_company_mrcx020996");
+    jwt.verify(token, process.env.JWT_KEY);
     next();
   } catch (error) {
     res.status(401).json({message: "Auth failed!"});

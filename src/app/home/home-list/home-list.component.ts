@@ -18,9 +18,6 @@ export class HomeListComponent implements OnInit, OnDestroy {
     // { employeeName: 'Tony', email: 'tony@gmail.com'},
     // { employeeName: 'Stephen H. Kattell', email: 'skattell@kattell.com' }
   ];
-  private latitude: number = 29.666688;
-  private longitude: number = -82.333266;
-  private zoom: number = 16;
 
   private homeSub: Subscription;
   constructor(public homeService: HomeService, private authService: AuthService) { }
@@ -36,7 +33,7 @@ export class HomeListComponent implements OnInit, OnDestroy {
       thumbnailWidth: 200,
       thumbnailHeight: 100,
       thumbnailPointer: true,
-      autoplay: false,
+      autoplay: true,
       autoScaleLayers: false,
       breakpoints: {
         500: {
@@ -65,10 +62,6 @@ export class HomeListComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.homeSub.unsubscribe();
     this.authListenerSubs.unsubscribe();
-  }
-
-  markerClick () {
-    console.log('markerClick');
   }
 
 }

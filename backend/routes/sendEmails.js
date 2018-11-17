@@ -15,6 +15,15 @@ var getFileTypeName = function(filename){
   var postf=filename.substring(index1,index2);
   return postf;
 };
+var transporter = nodemailer.createTransport({
+  host: 'smtp.qq.com',
+  service: 'qq',
+  secure: true,
+  auth: {
+    user: '2242135581@qq.com',  // 2242135581@qq.com
+    pass: 'dfdwfocduipyeacd'    // dfdwfocduipyeacd
+  }
+});
 
 router.post('/send', function (req, res, next) {
 
@@ -22,17 +31,6 @@ router.post('/send', function (req, res, next) {
   var firstname = req.body.firstname;
   var imgurl = req.body.imgurl;
   var lastname = req.body.lastname;
-
-  // send email server
-  var transporter = nodemailer.createTransport({
-    host: 'smtp.qq.com',
-    service: 'qq',
-    secure: true,
-    auth: {
-      user: '2242135581@qq.com',  // 2242135581@qq.com
-      pass: 'dfdwfocduipyeacd'    // dfdwfocduipyeacd
-    }
-  });
 
   // var transporter = nodemailer.createTransport('smtps://hbiao68%40yeah.net:1q2w3e4r5t@smtp.yeah.net');
 
@@ -85,21 +83,30 @@ router.post('/upload',upload.any(), function(req, res, next) {
   });
 });
 
-// router.post('/post', function (req, res, next) {
-//   res.json(200, {
-//     "body": req.body,
-//     "query": req.query,
-//     "params": req.params,
-//   });
-// });
-//
-// router.get('/get', function (req, res, next) {
-//   res.json(200, {
-//     "body": req.body,
-//     "query": req.query,
-//     "params": req.params,
-//   });
-// });
 
+router.post('/contactUs', function (req, res, next) {
+  console.log(req.body);
+  var contactUsHtml = `<div>
+    <div>firstName : ${req.body.firstname}</div>
+    <div>lastName : ${req.body.lastname}</div>
+    <div>email : ${req.body.emailaddress}</div>
+    <div>phonenumber : ${req.body.phonenumber}</div>
+    <div>message : ${req.body.message}</div>
+  </div>`;
 
+  var mailOptions = {
+    from: '2242135581@qq.com', // login user must equal to this user
+    to: 'rxu960830@ufl.edu',  // xrj0830@gmail.com
+    subject: 'Title Nodejs Send',
+    html: contactUsHtml
+  };
+  transporter.sendMail(mailOptions, function (error, info) {
+    if (error) {
+      return console.log(error);
+    }
+    console.log('Message sent: ' + info.response);
+  });
+  res.status(200).json({message: 'send OK'});
+})
+;
 module.exports = router;

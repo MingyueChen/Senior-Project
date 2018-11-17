@@ -30,7 +30,7 @@ export class ContactService {
           'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
         })
       };
-      this.http.post('http://localhost:3000/mail/send', msg, headers).subscribe(
+      this.http.post('http://localhost:3000/mail/contactUs', msg, headers).subscribe(
         data => {
           console.log(data);
         }

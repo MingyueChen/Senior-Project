@@ -97,7 +97,7 @@ router.post('/contactUs', function (req, res, next) {
   var mailOptions = {
     from: '2242135581@qq.com', // login user must equal to this user
     to: 'rxu960830@ufl.edu',  // xrj0830@gmail.com
-    subject: 'Title Nodejs Send',
+    subject: 'You have a new message',
     html: contactUsHtml
   };
   transporter.sendMail(mailOptions, function (error, info) {

@@ -1,3 +1,6 @@
+@import "~bootstrap/scss/bootstrap.scss";
+@import "~font-awesome/css/font-awesome.css";
+
 .home-list-component{
   width: 100%;
   max-width: 1200px;
@@ -41,6 +44,34 @@
       clear: both;
     }
   }
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  // outline: black;
+  // background-size: 100%, 100%;
+  // border-radius: 50%;
+  // border: 1px solid black;
+  background-image: none;
+}
+
+.carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 55px;
+  color: rgb(192, 226, 43);
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 55px;
+  color: rgb(192, 226, 43);
+}
+
+
+
+
 
 }
 

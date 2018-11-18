@@ -1,6 +1,6 @@
 {
   "/mail": {
-    "target":"http://localhost:3000",
+    "target":"http://kattell-test.us-east-2.elasticbeanstalk.com",
     "secure":false,
     "logLevel":"debug",
     "changeOrigin":true

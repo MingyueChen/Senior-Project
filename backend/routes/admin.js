@@ -39,7 +39,7 @@ bcryptjs.genSalt(saltRounds, function(err, salt) {
           process.env.JWT_KEY,
           {expiresIn: "1d"},
           (err, emailToken) => {
-            const url = 'http://localhost:3000/admin/confirmation/' + emailToken;
+            const url = 'http://kattell-test.us-east-2.elasticbeanstalk.com/admin/confirmation/' + emailToken;
             transporter.sendMail({
               from: 'mingyuehappy@gmail.com',
               to: admin.email,
@@ -133,6 +133,6 @@ router.get("/confirmation/:token", async (req, res) => {
     res.send('error');
   }
 
-  return res.redirect('http://localhost:4200/login');
+  return res.redirect('http://kattell-test.s3-website.us-east-2.amazonaws.com/login');
 });
 module.exports = router;

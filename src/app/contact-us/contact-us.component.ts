@@ -13,6 +13,9 @@ export class ContactUsComponent implements OnInit {
   emailaddress: any = '';
   phonenumber: any = '';
   message: any = '';
+  private latitude: number = 29.666688;
+  private longitude: number = -82.333266;
+  private zoom: number = 16;
 
   constructor(private contactService: ContactService) {
   }
@@ -23,6 +26,10 @@ export class ContactUsComponent implements OnInit {
   send() {
 
     this.contactService.sendContact(this.firstname, this.lastname, this.emailaddress, this.phonenumber, this.message);
+  }
+
+  markerClick() {
+    console.log('markerClick');
   }
 
 }

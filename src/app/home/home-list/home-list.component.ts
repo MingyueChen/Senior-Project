@@ -24,6 +24,25 @@ export class HomeListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
+    $('#slide-img-container').sliderPro({
+      width: 960,
+      height: 500,
+      arrows: true,
+      buttons: false,
+      waitForLayers: true,
+      thumbnailWidth: 200,
+      thumbnailHeight: 100,
+      thumbnailPointer: true,
+      autoplay: true,
+      autoScaleLayers: false,
+      breakpoints: {
+        500: {
+          thumbnailWidth: 120,
+          thumbnailHeight: 50
+        }
+      }
+    });
+
     this.homeService.getInfo();
     // 1st argument in subscribe: a function which is called whenever a new value was received
     this.homeSub = this.homeService.getInfoUpdateListener()
@@ -43,10 +62,6 @@ export class HomeListComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.homeSub.unsubscribe();
     this.authListenerSubs.unsubscribe();
-  }
-
-  markerClick () {
-    console.log('markerClick');
   }
 
 }

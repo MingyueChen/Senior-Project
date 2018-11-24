@@ -2,29 +2,55 @@
 @import "~font-awesome/css/font-awesome.css";
 
 .header-component{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 6px;
+  z-index: 999;
+  background-color: transparent;
+  .navbar-brand{
+    font-size: 22px;
+    font-weight: bold;
+    color: #999;
+  }
+
+  .navbar-brand{
+    &:hover{
+      color: #999;
+    }
+    a:visited{
+      color: #999;
+    }
+  }
+
   .router-link-active {
     border: 2px solid;
-    background-color:  rgb(44, 112, 135);
+    //background-color:  rgb(44, 112, 135);
     font-weight: bold;
   }
 
   .nav-link{
     h6 {
-      color: white;
+      color: #999;
       margin-bottom: 0;
+      font-weight: bold;
+    }
+    &a {
+      border: 0px solid #000;
     }
   }
+
   .signup-btn{
-    color: #fff;
-    border-color: #fff;
+    color: #999;
+    border-color: #999;
     margin-right: 12px;
     h6 {
       margin-bottom: 0;
     }
   }
   .login-btn{
-    color: #fff;
-    border-color: #fff;
+    color: #999;
+    border-color: #999;
     h6 {
       margin-bottom: 0;
     }

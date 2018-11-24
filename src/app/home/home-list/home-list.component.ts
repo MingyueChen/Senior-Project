@@ -24,24 +24,15 @@ export class HomeListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    $('#slide-img-container').sliderPro({
-      width: 960,
-      height: 500,
-      arrows: true,
-      buttons: false,
-      waitForLayers: true,
-      thumbnailWidth: 200,
-      thumbnailHeight: 100,
-      thumbnailPointer: true,
-      autoplay: true,
-      autoScaleLayers: false,
-      breakpoints: {
-        500: {
-          thumbnailWidth: 120,
-          thumbnailHeight: 50
-        }
-      }
+    $('#fullpage').fullpage({
+      scrollHorizontally: true,
+      continuousHorizontal: true,
+      licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
+      controlArrows: true,
+      dragAndMove: true,
     });
+
+
 
     this.homeService.getInfo();
     // 1st argument in subscribe: a function which is called whenever a new value was received

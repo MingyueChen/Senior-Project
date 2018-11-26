@@ -1,0 +1,39 @@
+<div class = "card col-6 mx-auto" id="homeCard" >
+    <form [formGroup]="form" (submit) = "onSaveUserInfo()">
+        <div class="form-group">
+          <!-- <label for="exampleInputEmail1">Email address</label> -->
+            <input type="text" class="form-control"
+            id="InputURL" placeholder="Enter Organization Website URL*"
+            name="userWebsite"
+            formControlName="userWebsite">
+
+        </div>
+
+        <div class="form-group">
+          <input type="name"
+          class="form-control"
+          id="InputName"
+          placeholder="Enter Organization Name*"
+          name="userName"
+          formControlName="userName">
+        </div>
+
+        <div class="form-group">
+            <input type="text"
+            class="form-control"
+            id="InputLocation"
+            placeholder="Enter Organization Location*"
+            name="userLocation"
+            formControlName="userLocation">
+        </div>
+
+
+        <br/>
+        <br/>
+      <section class="row">
+        <button  type="submit"  class="mx-auto btn btn-primary">Save Info</button>
+      </section>
+    </form>
+
+  </div>
+

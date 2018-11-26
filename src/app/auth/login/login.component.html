@@ -31,27 +31,30 @@
   <div class = "card mx-auto login-component-form"  align = "center">
 
     <form class="form-horizontal" (submit)="onLogin(signupForm)" #signupForm="ngForm">
-      <div class="form-group">
-        <label class="col-sm-2 control-label">Email</label>
-        <div class="col-sm-9">
+      <mat-form-field>
+        <!-- <label class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-9"> -->
 
-          <input name="email" ngModel type="email" class="form-control"
-                 id="email" aria-describedby="emailHelp" placeholder="Enter your email" #emailInput = "ngModel"
+          <input matInput name="email" ngModel type="email"
+                 id="email"  placeholder="Enter your email" #emailInput = "ngModel"
                  required email>
-        </div>
-      </div>
-      <div class="form-group">
+        <!-- </div> -->
+          <mat-error *ngIf="emailInput.invalid">Please enter a valid email.</mat-error>
+      </mat-form-field>
+      <!-- <div class="form-group">
         <label class="col-sm-2 control-label">Password</label>
-        <div class="col-sm-9">
+        <div class="col-sm-9"> -->
 
-          <input name="password" ngModel type="password"
-                 class="form-control"
-                 id="password"
-                 placeholder="Create a Password"
-                 #passwordInput = "ngModel"
-                 required>
-        </div>
-      </div>
+          <mat-form-field>
+            <input matInput name="password" ngModel type="password"
+                   id="password"
+                   placeholder="Enter your Password"
+                   #passwordInput = "ngModel"
+                   required>
+            <mat-error *ngIf="passwordInput.invalid">Please enter a valid password.</mat-error>
+          </mat-form-field>
+        <!-- </div>
+      </div> -->
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
           <button type="submit" class="btn btn-primary">Login</button>

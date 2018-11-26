@@ -1,0 +1,123 @@
+
+
+
+        <!-- <div class="accordion " id="accordionExample" style="width: 100%; margin: 4%;">
+          <div class="card">
+            <div class="card-header" id="headingOne" style="background-color: rgb(189, 150, 225);">
+              <h5 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <h2 style="color: rgb(217, 235, 236);">Our Service</h2>
+                </button>
+              </h5>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body">
+                Kattell and Company provides the highest quality accounting and auditing services exclusively to not-for-profit organizations. <br/><br/>
+
+                Our focus is not-for-profit organizations. This is what we know, it's what we are good at, and it's what we like to do.
+
+                As you can see from Steve's resume, the majority of his professional career has been devoted to gaining nonprofit specific knowledge and experience. Our professionals know more about not-for-profit accounting and auditing than any others. That's where all our work is, it's where all of our training is focused. <br/><br/>
+
+                A wise mentor once told a young CPA, "All we have to offer is knowledge - knowledge about our clients and their industry. If you don't have that, you don't have anything." <br/><br/>
+
+                Our exclusive focus is unlike any other in north central Florida. It's one of the aspects of Kattell and Company that sets us apart. <br/><br/>
+                The Right Choice. Why does this make Kattell and Company the right choice for you? We take our industry specific knowledge and put it to work for you. <br/><br/>
+
+                The result is:
+                <li>Efficient audits that reduce the inconvenience of an audit.</li>
+                <li>Effective audits that produce real assistance in the operations of your organization.</li>
+                <li>Recommendations to reduce the risk of fraud.</li>
+                <li>Suggestions to ensure compliance with the Internal Revenue Service.</li>
+                <li>Advice to reduce the incidence and amount of income taxes.</li>
+                <li>Communicate your mission and your results.</li>
+                <li>Assistance making your financial statements and IRS forms</li>
+              </div>
+            </div>
+          </div>
+
+      </div> -->
+
+
+
+
+      <div >
+        <div class="col-8 mx-auto ">
+          <div class="col-lg-4 justify-content-center"  style="margin-bottom:1%;">
+            <h2 style="margin-top:45px;">Meet Our Team</h2>
+
+            <div *ngIf="adminIsAuthenticated" style="margin-top:10px;margin-bottom:45px;">
+                <a class="btn btn-primary" role="button" routerLink="/addEmployeeInfo" routerLinkActive="router-link-active"
+                  [routerLinkActiveOptions]="{exact:
+                          true}">Add new Employee Info  <i class="fa fa-user-plus" aria-hidden="true"></i></a>
+              </div>
+
+
+              <div class="card-body" *ngIf="employeeInfo.length <= 0" style="margin-top:45px;">
+                <p class="card-text">No Employee Information</p>
+              </div>
+        </div>
+      </div>
+
+
+
+
+        <!-- <div class="card bg-light mb-3">
+          <div class="card-header">Company Info</div>
+          <div class="card-body">
+            <p class="card-text">
+              808-B NW 16th Avenue
+              Gainesville, Florida 32601 <br/>
+              Telephone: (352) 395-6565 <br/>
+              Facsimile: (352) 395-6636
+            </p>
+          </div>
+        </div> -->
+        <div class="col-8 mx-auto" >
+            <div class="container-fluid " >
+                <div class="row" *ngIf="employeeInfo.length > 0">
+
+                    <div  *ngFor="let einfo of employeeInfo; index as i" class="col-lg-4 justify-content-center"  >
+
+                      <img class="profile" [src]="einfo.imagePath" [alt]="einfo.employeeName" height="200" width="150">
+                      <h6 class="name"> {{ einfo.employeeName }}, {{ einfo.employeeTitle }}</h6>
+                      <h6 class="name"> {{ einfo.employeeEmail }}</h6>
+
+                        <button type="button" class="btn btn-outline-dark shadow bg-outline-dark rounded" data-toggle="modal" [attr.data-target]="'#' + i">
+                            Read More Bio
+                          </button>
+
+                          <div class="modal fade" [attr.id]="i" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title text-center" id="exampleModalLongTitle">Meet {{ einfo.employeeName }} </h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                    {{ einfo.employeeBio }}
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <br/>
+                          <br/>
+
+                          <a *ngIf="adminIsAuthenticated" class="btn btn-info btn-sm" [routerLink]="['/edit', einfo.employeeID]">EDIT
+                          <i class="fa fa-pencil-square-o" aria-hidden="true"></i> </a>
+                          <button *ngIf="adminIsAuthenticated" class="btn btn-danger btn-sm" (click)="onDelete(einfo.employeeID)">
+                            DELETE <i class="fa fa-times" aria-hidden="true"></i></button>
+                            <br/>  <br/>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+      </div>

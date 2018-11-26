@@ -1,0 +1,28 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
+
+.form-group {
+  margin: 3px;
+}
+
+input[type="file"] {
+  visibility:hidden;
+}
+
+.btn-outline-warning {
+  margin-bottom:2%;
+  margin-left:2px;
+}
+
+.image-preview {
+  height: 5rem;
+  margin: 1rem, 0;
+}
+
+.image-preview img {
+  height: 100%;
+}
+
+mat-form-field {
+  width:100%;
+}

@@ -1,0 +1,30 @@
+<div class="container animated bounceInLeft">
+  <h1 class="brand">Our Client</h1>
+  <div *ngIf="adminIsAuthenticated" style="margin-top:10px;margin-bottom:45px;">
+      <a class="btn btn-primary" role="button" routerLink="/addUserInfo" routerLinkActive="router-link-active"
+        [routerLinkActiveOptions]="{exact:
+                true}">Add New Client Info  <i class="fa fa-user-plus" aria-hidden="true"></i></a>
+    </div>
+  <!--<table class="table table-striped">-->
+<h6>Click on the organization name to view its website</h6>
+  <table class="table table-striped table-bordered" cellspacing="0" width="100%" id="userListComp" >
+    <thead>
+    <tr>
+      <th>List Number#</th>
+      <th>Organization Name/Website</th>
+      <th>Organization Location</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr role="row" *ngFor="let uinfo of userInfo; index as i; let odd=odd;  let even=even;"  [class.odd]="even" [class.even]="odd">
+        <td class="sorting_1"> {{ i+1 }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <a *ngIf="adminIsAuthenticated" class="btn btn-info btn-sm" [routerLink]="['/user/edit', uinfo.userID]">EDIT
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i> </a> &nbsp;
+               <button *ngIf="adminIsAuthenticated" class="btn btn-danger btn-sm" (click)="onDelete(uinfo.userID)">      DELETE <i class="fa fa-times" aria-hidden="true"></i></button>
+        </td>
+        <td > <a href = "{{ uinfo.userWebsite }}"> {{ uinfo.userName }} </a></td>
+        <td> {{ uinfo.userLocation }} </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

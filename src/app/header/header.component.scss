@@ -44,13 +44,25 @@
     color: #999;
     border-color: #999;
     margin-right: 12px;
+    border-radius: 20px;
     h6 {
       margin-bottom: 0;
     }
   }
   .login-btn{
-    color: #999;
-    border-color: #999;
+    color: #fff;
+    border-color: #fff;
+    border-radius: 20px;
+    h6 {
+      margin-bottom: 0;
+    }
+  }
+
+  .logout-btn{
+    color: #fff;
+    border-color: #fff;
+    border-radius: 20px;
+
     h6 {
       margin-bottom: 0;
     }

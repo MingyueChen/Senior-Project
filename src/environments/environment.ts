@@ -4,7 +4,7 @@
 
 export const environment = {
   production: true,
-  apiUrl: 'http://kattell-test.us-east-2.elasticbeanstalk.com/'
+  apiUrl: 'http://localhost:3000/'
 };
 
 /*
@@ -15,3 +15,4 @@ export const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+//  apiUrl: 'http://kattell-test.us-east-2.elasticbeanstalk.com/'

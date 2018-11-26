@@ -3,8 +3,8 @@ import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { NgModule } from '@angular/core';
-import {  FormsModule } from '@angular/forms';
-import { MatSnackBarModule, MatDialogModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule, MatDialogModule, MatButtonModule, MatInputModule, MatFormFieldModule } from '@angular/material';
 import { FileUploadModule } from 'ng2-file-upload';
 
 import { AppComponent } from './app.component';
@@ -20,7 +20,7 @@ import { DataTablesModule } from 'angular-datatables';
 import { HomeListComponent } from './home/home-list/home-list.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {ContactService} from './contact-us/contact.service';
-import { UserListComponent } from './user-list/user-list.component';
+import { UserListComponent } from './user/user-list/user-list.component';
 
 
 import { LoginComponent } from './auth/login/login.component';
@@ -32,6 +32,9 @@ import { MatDialog } from '@angular/material';
 import { CustominfoUploadComponent } from './custominfo-upload/custominfo-upload.component';
 import { TestimonialsCreateComponent } from './testimonials/testimonials-create/testimonials-create.component';
 import { TestimonialsListComponent } from './testimonials/testimonials-list/testimonials-list.component';
+import { AboutUsListComponent } from './aboutUs/about-us-list/about-us-list.component';
+import { AboutUsCreateComponent } from './aboutUs/about-us-create/about-us-create.component';
+import { UserCreateComponent } from './user/user-create/user-create.component';
 
 @NgModule({
   declarations: [
@@ -47,23 +50,30 @@ import { TestimonialsListComponent } from './testimonials/testimonials-list/test
     ErrorComponent,
     CustominfoUploadComponent,
     TestimonialsCreateComponent,
-    TestimonialsListComponent
+    TestimonialsListComponent,
+    AboutUsListComponent,
+    AboutUsCreateComponent,
+    UserCreateComponent
   ],
   imports: [
+    MatFormFieldModule,
+    MatButtonModule,
     BrowserModule,
-    FormsModule,
     AppRoutingModule,
     HttpClientModule,
     DataTablesModule,
     MatSnackBarModule,
     MatDialogModule,
     NgbModule,
+    MatInputModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCpegHJIX14436l7SN4dFdGkaGXz9NgWWA'
     }),
     BrowserModule,
     BrowserAnimationsModule,
     FileUploadModule,
+    ReactiveFormsModule,
+    FormsModule,
     NgbModule.forRoot()
   ],
   providers: [ContactService,

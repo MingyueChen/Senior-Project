@@ -2,12 +2,46 @@ const express = require("express");
 const EmployeeInfo = require('../models/employeeInfo');
 const checkAuth = require("../middleware/check-auth");
 const router = express.Router();
+const multer = require("multer");
+const MIME_TYPE_MAP = {
+  'image/png': 'png',
+  'image/jpeg': 'jpg',
+  'image/jpg': 'jpg'
+};
+const storage = multer.diskStorage({
+  // cb: call back
+  destination: (req, file, cb) => {
+    const isValid = MIME_TYPE_MAP[file.mimetype];
+    let error = new Error("Invalid mime type");
+    if (isValid) {
+      error = null;
+    }
+    // 1st argument: whether we detect some errors (we set it to null)
+    // 2nd argument: a string with the path tp the folder where it should be stored
+    // the path (2nd argument) is relative to the path where server.js is stored
+    cb(null, "backend/images");
+  },
+  filename: (req, file, cb) => {
+    const name = file.originalname.toLowerCase().split(' ').join('-');
+    const ext = MIME_TYPE_MAP[file.mimetype];
+    cb(null, name + '-' + Date.now() + '.' + ext);
+  }
+});
 
-router.post('', checkAuth, (req, res, next) => {
-
+// single on line 32: I am expecting a single file
+/*
+multer will try to extract the single file from the incoming
+request and it will try to find it on the image property in
+the request body
+*/
+router.post('', multer({storage}).single("image"), checkAuth, (req, res, next) => {
+  const url = req.protocol + '://' + req.get("host");
   const info = new EmployeeInfo({
     employeeName: req.body.employeeName,
-    employeeEmail: req.body.employeeEmail
+    employeeEmail: req.body.employeeEmail,
+    employeeTitle: req.body.employeeTitle,
+    employeeBio: req.body.employeeBio,
+    imagePath: url + "/images/" + req.file.filename
   });
 
   // the save method is provided by the mongoose package
@@ -30,16 +64,32 @@ router.post('', checkAuth, (req, res, next) => {
     // return a response
     res.status(201).json({
       message: 'Info added successfully',
-      infoID: createdEmployeeInfo._id
+      info: {
+        ...createdEmployeeInfo,
+        id: createdEmployeeInfo._id
+      }
     });
-  });
+  })
+    .catch(error => {
+      res.status(500).json({
+        message: "Creating employee information failed!"
+      });
+    });
 });
 
-router.put('/:id', checkAuth, (req, res, next) => {
+router.put('/:id', multer({storage}).single("image"), checkAuth, (req, res, next) => {
+  let imagePath = req.body.imagePath;
+  if (req.file) {
+    const url = req.protocol + '://' + req.get("host");
+    imagePath = url + "/images/" + req.file.filename;
+  }
   const info = new EmployeeInfo({
     _id: req.params.id,
     employeeName: req.body.employeeName,
-    employeeEmail: req.body.employeeEmail
+    employeeEmail: req.body.employeeEmail,
+    employeeTitle: req.body.employeeTitle,
+    employeeBio: req.body.employeeBio,
+    imagePath: imagePath
   });
 
   // the id matches ':/id'

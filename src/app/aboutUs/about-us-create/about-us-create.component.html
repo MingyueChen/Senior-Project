@@ -1,0 +1,53 @@
+<div class = "card col-6 mx-auto" id="homeCard" style="margin-top: 1%;" >
+  <form [formGroup]="form" (submit) = "onSaveEmployeeInfo()">
+      <mat-form-field style="margin-top: 1%;">
+          <input matInput type="email"
+          id="InputEmail" aria-describedby="emailHelp" placeholder="Enter an email"
+          name="employeeEmail"
+          formControlName="employeeEmail">
+          <mat-error *ngIf="form.get('employeeEmail').invalid">Please enter a valid email address</mat-error>
+          <!--note: the [ngModel] employeeInfo is the property defined in home-create.component.ts-->
+      </mat-form-field>
+      <br/> <br/>
+      <mat-form-field>
+        <input
+        matInput type="text"
+        placeholder="Enter a name"
+        formControlName="employeeName">
+        <mat-error *ngIf="form.get('employeeName').invalid">Please enter a name.</mat-error>
+      </mat-form-field>
+
+      <br/> <br/>
+      <mat-form-field>
+          <input matInput
+          type="text"
+          placeholder="Enter a job title"
+          formControlName="employeeTitle">
+          <mat-error *ngIf="form.get('employeeTitle').invalid">Please enter a job title.</mat-error>
+      </mat-form-field>
+      <br/> <br/>
+      <mat-form-field>
+          <textarea matInput
+                    rows = "8"
+                    placeholder="Self-introduction"
+                    name="employeeTBio"
+                    formControlName="employeeBio"></textarea>
+          <mat-error *ngIf="form.get('employeeBio').invalid">Please enter your self-introduction with 10 characters at least</mat-error>
+      </mat-form-field>
+      <br/> <br/>
+          <button  class="btn btn-outline-warning btn-sm" type="button" (click)="filePicker.click()">Upload Profile*</button>
+          <input type="file" #filePicker (change)="onImagePicked($event)">
+      <br/>
+      <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid">
+        <img [src]="imagePreview" [alt]="form.value.employeeEmail">
+      </div>
+      <div class="image-preview" *ngIf="imagePreview === '' || !form.get('image').valid">
+          <mat-error *ngIf="form.get('image').invalid">Please upload profile.</mat-error>
+      </div>
+      <br/>
+    <section class="row">
+      <button  type="submit"  class="mx-auto btn btn-primary" style="margin-bottom: 1%;">Save Info</button>
+    </section>
+  </form>
+
+</div>

@@ -13,6 +13,11 @@
       </li>
 
       <li class="nav-item">
+        <a class="nav-link" routerLink="/aboutUs" routerLinkActive = "router-link-active" [routerLinkActiveOptions]="{exact:
+          true}" ><h6>About Us</h6></a>
+      </li>
+
+      <li class="nav-item">
         <a class="nav-link" routerLink="/contactUs" routerLinkActive="router-link-active" [routerLinkActiveOptions]="{exact:
                       true}"><h6>Contact Us</h6></a>
       </li>
@@ -39,13 +44,13 @@
     </ul>
     <a *ngIf="!adminIsAuthenticated" class="btn btn-outline-primary my-2 my-sm-0 signup-btn" routerLink="/signup"
        routerLinkActive="router-link-active" [routerLinkActiveOptions]="{exact:
-                  true}"><h6>Sign Up</h6></a>
+                  true}"><h6>Sign Up  <i class="fa fa-user-plus" aria-hidden="true"></i></h6></a>
 
     <a *ngIf="!adminIsAuthenticated" class="btn btn-outline-primary my-2 my-sm-0 login-btn" routerLink="/login"
        routerLinkActive="router-link-active" [routerLinkActiveOptions]="{exact:
-                  true}"><h6>Log In</h6></a>
+                  true}"><h6>Log In  <i class="fa fa-sign-in" aria-hidden="true"></i></h6></a>
 
-    <button *ngIf="adminIsAuthenticated" class="btn btn-outline-light my-2 my-sm-0 logout-btn" (click)="onLogout()"><h6>Log Out</h6>
+    <button *ngIf="adminIsAuthenticated" class="btn btn-outline-primary my-2 my-sm-0 logout-btn" (click)="onLogout()"><h6>Log Out   <i class="fa fa-sign-out" aria-hidden="true"></i></h6>
     </button>
   </div> <!--end of second group div-->
 </nav>

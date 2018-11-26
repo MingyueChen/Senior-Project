@@ -66,7 +66,7 @@
           <div *ngIf="adminIsAuthenticated" align="center">
             <a class="btn btn-primary" role="button" routerLink="/addEmployeeInfo" routerLinkActive="router-link-active"
                [routerLinkActiveOptions]="{exact:
-                      true}"><h6>Add new Employee Info</h6></a>
+                      true}">Add new Employee Info<i class="fa fa-user-plus" aria-hidden="true"></i></a>
           </div>
         </div>
         <div class="card-body" *ngIf="employeeInfo.length <= 0">
@@ -74,7 +74,7 @@
           <div *ngIf="adminIsAuthenticated" align="center">
             <a class="btn btn-primary" role="button" routerLink="/addEmployeeInfo" routerLinkActive="router-link-active"
                [routerLinkActiveOptions]="{exact:
-                        true}"><h6>Add new Employee Info</h6></a>
+                        true}">Add new Employee Info<i class="fa fa-user-plus" aria-hidden="true"></i></a>
           </div>
         </div>
       </div>

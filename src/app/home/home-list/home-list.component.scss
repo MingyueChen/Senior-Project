@@ -3,9 +3,49 @@
 
 .home-list-component{
   width: 100%;
-  max-width: 1200px;
-  min-width: 320px;
-  margin: 0 auto;
+  //max-width: 1200px;
+  //min-width: 320px;
+  //margin: 0 auto;
+
+  .first-img{
+    position: relative;
+    .introduce{
+      position: absolute;
+      top: 24%;
+      left: 15%;
+      width: 60%;
+      min-width: 330px;
+      .welcome-title{
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 1.8;
+      }
+      .brif{
+        font-size: 18px;
+        line-height: 2.4;
+      }
+    }
+  }
+
+  .home-image{
+    //height: 100%;
+    //width: auto;
+    margin: 0 auto;
+    display: block;
+
+    width: 100%;
+    height: auto;
+  }
+
+  .page-img{
+    //background-image: url(../../../assets/images/home3.png);
+    //background-size:cover;
+    width: 100%;
+    height: auto;
+  }
+
+
+
   .company-title{
     text-align: center;
   }
@@ -44,34 +84,6 @@
       clear: both;
     }
   }
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  height: 100px;
-  width: 100px;
-  // outline: black;
-  // background-size: 100%, 100%;
-  // border-radius: 50%;
-  // border: 1px solid black;
-  background-image: none;
-}
-
-.carousel-control-next-icon:after
-{
-  content: '>';
-  font-size: 55px;
-  color: rgb(192, 226, 43);
-}
-
-.carousel-control-prev-icon:after {
-  content: '<';
-  font-size: 55px;
-  color: rgb(192, 226, 43);
-}
-
-
-
-
 
 }
 

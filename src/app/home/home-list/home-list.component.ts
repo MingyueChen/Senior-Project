@@ -24,6 +24,16 @@ export class HomeListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
+    $('#fullpage').fullpage({
+      scrollHorizontally: true,
+      continuousHorizontal: true,
+      licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
+      controlArrows: true,
+      dragAndMove: true,
+    });
+
+
+
     this.homeService.getInfo();
     // 1st argument in subscribe: a function which is called whenever a new value was received
     this.homeSub = this.homeService.getInfoUpdateListener()
@@ -43,10 +53,6 @@ export class HomeListComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.homeSub.unsubscribe();
     this.authListenerSubs.unsubscribe();
-  }
-
-  markerClick () {
-    console.log('markerClick');
   }
 
 }

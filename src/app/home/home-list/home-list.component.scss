@@ -45,6 +45,12 @@
       width: 60%;
       min-width: 330px;
       max-width: 380px;
+      line-height: 1.8;
+      a.btn-default{
+        color: #333;
+        background-color: #fff;
+        border-color: #ccc;
+      }
     }
   }
 
@@ -58,6 +64,7 @@
       min-width: 230px;
       max-width: 280px;
       font-size: 18px;
+      line-height: 2.4;
     }
 
     .intro-third-right{
@@ -68,48 +75,21 @@
       min-width: 230px;
       max-width: 280px;
       font-size: 18px;
-    }
-  }
-
-  .forth-img{
-    position: relative;
-    .center-container{
-      position: absolute;
-      width: 100%;
-      top: 20%;
-      .inro-container{
-        min-width: 530px;
-        max-width: 960px;
-        margin: 0 auto;
-        width: 80%;
-        line-height: 1.6;
-        .title{
-          text-align: center;
-          font-size: 24px;
-          font-weight: bold;
-          line-height: 2;
-        }
-        .introduce{
-          line-height: 1.6;
-          font-size: 18px;
-        }
-        .img-container{
-          margin-top: 10px;
-          .img-item{
-            float: left;
-            width: 33.33%;
-            text-align: center;
-            img{
-              margin: 0 auto;
-              height: 120px;
-              width: auto;
-            }
-          }
-        }
+      line-height: 2.4;
+      .important-msg{
+        font-weight: bold;
+      }
+      a.btn-default{
+        background-color: transparent;
+        margin-top: 15px;
+        color: #333;
+        border: 2px solid #000;
+        border-radius: 4px;
       }
     }
-
   }
+
+
 
   .home-image{
     margin: 0 auto;

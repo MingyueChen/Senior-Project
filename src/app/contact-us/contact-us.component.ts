@@ -25,7 +25,7 @@ export class ContactUsComponent implements OnInit {
 
   send() {
 
-    this.contactService.sendContact(this.firstname, this.lastname, this.emailaddress, this.phonenumber, this.message);
+    this.contactService.sendContact(this.firstname, this.lastname, this.emailaddress, this.phonenumber, this.message, this);
   }
 
   markerClick() {

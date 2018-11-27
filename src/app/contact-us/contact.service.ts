@@ -12,7 +12,7 @@ const BACKEND_URL = environment.apiUrl;
 @Injectable({providedIn: 'root'})
 export class ContactService {
   constructor (private http: HttpClient, private router: Router ) {}
-  sendContact(firstName, lastName, emailAddress, phoneNumber, message) {
+  sendContact(firstName, lastName, emailAddress, phoneNumber, message, compObj) {
     if (firstName === '' || firstName === undefined || firstName === null) {
       alert('firstname could not be empty!');
     } else if (lastName === '' || lastName === undefined || lastName === null) {
@@ -32,9 +32,15 @@ export class ContactService {
           'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
         })
       };
-      this.http.post(BACKEND_URL + 'mail/send', msg, headers).subscribe(
+      this.http.post(BACKEND_URL + 'mail/contactUs', msg, headers).subscribe(
         data => {
           console.log(data);
+          alert('Send Success!');
+          compObj.firstname = '';
+          compObj.lastname = '';
+          compObj.emailaddress = '';
+          compObj.phonenumber = '';
+          compObj.message = '';
         }
       );
     }

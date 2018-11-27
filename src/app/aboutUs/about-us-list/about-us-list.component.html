@@ -43,16 +43,14 @@
 
       <div >
         <div class="col-8 mx-auto ">
-          <div class="col-lg-4 justify-content-center"  style="margin-bottom:1%;">
-            <h2 style="margin-top:45px;">Meet Our Team</h2>
+            <h2 style="margin-top:75px;  padding:1em; text-align: center;">Meet Our Team</h2>
 
-            <div *ngIf="adminIsAuthenticated" style="margin-top:10px;margin-bottom:45px;">
-                <a class="btn btn-primary" role="button" routerLink="/addEmployeeInfo" routerLinkActive="router-link-active"
+            <div *ngIf="adminIsAuthenticated" style="margin-top:10px;margin-bottom:45px;text-align: center;">
+                <a class="btn btn-outline-primary" role="button" routerLink="/addEmployeeInfo" routerLinkActive="router-link-active"
                   [routerLinkActiveOptions]="{exact:
-                          true}">Add new Employee Info  <i class="fa fa-user-plus" aria-hidden="true"></i></a>
+                          true}">Add new Employee Info</a>
               </div>
-
-
+          <div class="col-lg-4 justify-content-center"  style="margin-bottom:1%;">
               <div class="card-body" *ngIf="employeeInfo.length <= 0" style="margin-top:45px;">
                 <p class="card-text">No Employee Information</p>
               </div>
@@ -100,7 +98,7 @@
                                     {{ einfo.employeeBio }}
                                 </div>
                                 <div class="modal-footer">
-                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                  <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
                                 </div>
                               </div>
                             </div>
@@ -109,10 +107,9 @@
                           <br/>
                           <br/>
 
-                          <a *ngIf="adminIsAuthenticated" class="btn btn-info btn-sm" [routerLink]="['/edit', einfo.employeeID]">EDIT
-                          <i class="fa fa-pencil-square-o" aria-hidden="true"></i> </a>
-                          <button *ngIf="adminIsAuthenticated" class="btn btn-danger btn-sm" (click)="onDelete(einfo.employeeID)">
-                            DELETE <i class="fa fa-times" aria-hidden="true"></i></button>
+                          <a *ngIf="adminIsAuthenticated" class="btn btn-outline-info btn-sm" [routerLink]="['/edit', einfo.employeeID]">EDIT</a>
+                          <button *ngIf="adminIsAuthenticated" class="btn btn-outline-danger btn-sm" (click)="onDelete(einfo.employeeID)">
+                            DELETE </button>
                             <br/>  <br/>
                     </div>
 

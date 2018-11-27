@@ -13,3 +13,11 @@ h6 {
 .logout-btn {
   color: white;
 }
+
+.navbar{
+  width: 100%;
+}
+
+.navbar-collapse {
+  background-color: lightblue;
+}

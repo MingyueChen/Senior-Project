@@ -7,8 +7,7 @@
   left: 0;
   right: 6px;
   z-index: 999;
-  background-color: transparent;
-
+  
   .navbar-brand{
     font-size: 24px;
     font-weight: bold;
@@ -23,7 +22,8 @@
 
   .router-link-active {
     border: 2px solid;
-    //background-color:  rgb(44, 112, 135);
+    border-color:#ccdbe2e5;
+    // background-color:  rgb(203, 233, 243);
     font-weight: bold;
   }
 
@@ -39,7 +39,6 @@
   }
 
   .signup-btn{
-    color: #999;
     border-color: #999;
     margin-right: 12px;
     border-radius: 20px;
@@ -48,8 +47,7 @@
     }
   }
   .login-btn{
-    color: #fff;
-    border-color: #fff;
+    border-color: #999;
     border-radius: 20px;
     h6 {
       margin-bottom: 0;
@@ -57,14 +55,17 @@
   }
 
   .logout-btn{
-    color: #fff;
-    border-color: #fff;
+    border-color: #999;
     border-radius: 20px;
 
     h6 {
       margin-bottom: 0;
     }
   }
+}
+
+.navbar-expand-md {
+  width: 100%;
 }
 
 

@@ -7,6 +7,12 @@
   //min-width: 320px;
   //margin: 0 auto;
 
+  .pagerSelector{
+    position: absolute;
+    bottom: 25px;
+    width: 100%;
+  }
+
   .first-img{
     position: relative;
     .introduce{
@@ -15,10 +21,12 @@
       left: 15%;
       width: 60%;
       min-width: 330px;
+      max-width: 520px;
       .welcome-title{
         font-weight: bold;
         font-size: 24px;
         line-height: 1.8;
+        text-align: center;
       }
       .brif{
         font-size: 18px;
@@ -27,63 +35,89 @@
     }
   }
 
-  .home-image{
-    //height: 100%;
-    //width: auto;
-    margin: 0 auto;
-    display: block;
-
-    width: 100%;
-    height: auto;
+  .second-img{
+    position: relative;
+    font-size: 18px;
+    .intro-two{
+      position: absolute;
+      top: 24%;
+      left: 15%;
+      width: 60%;
+      min-width: 330px;
+      max-width: 380px;
+    }
   }
 
-  .page-img{
-    //background-image: url(../../../assets/images/home3.png);
-    //background-size:cover;
-    width: 100%;
-    height: auto;
+  .third-img{
+    position: relative;
+    .intro-third-left{
+      position: absolute;
+      top: 24%;
+      left: 10%;
+      width: 60%;
+      min-width: 230px;
+      max-width: 280px;
+      font-size: 18px;
+    }
+
+    .intro-third-right{
+      position: absolute;
+      top: 24%;
+      right: 8%;
+      width: 60%;
+      min-width: 230px;
+      max-width: 280px;
+      font-size: 18px;
+    }
   }
 
-
-
-  .company-title{
-    text-align: center;
-  }
-  .company-info-container{
-    width: 100%;
-    margin: 0 auto;
-    max-width: 960px;
-    margin-top: 12px;
-  }
-
-  .service-intro-container{
-    width: 100%;
-    margin: 0 auto;
-    max-width: 960px;
-    margin-top: 12px;
-    .show_item_left{
-      display: inline-block;
-      float: left;
-      width: 40%;
-      padding-right: 12px;
-      .service-img{
-        width: 100%;
-        height: auto;
+  .forth-img{
+    position: relative;
+    .center-container{
+      position: absolute;
+      width: 100%;
+      top: 20%;
+      .inro-container{
+        min-width: 530px;
+        max-width: 960px;
+        margin: 0 auto;
+        width: 80%;
+        line-height: 1.6;
+        .title{
+          text-align: center;
+          font-size: 24px;
+          font-weight: bold;
+          line-height: 2;
+        }
+        .introduce{
+          line-height: 1.6;
+          font-size: 18px;
+        }
+        .img-container{
+          margin-top: 10px;
+          .img-item{
+            float: left;
+            width: 33.33%;
+            text-align: center;
+            img{
+              margin: 0 auto;
+              height: 120px;
+              width: auto;
+            }
+          }
+        }
       }
     }
-    .show_item_right{
-      width: 60%;
-      display: inline-block;
-      line-height: 1.6;
-    }
-    &:after{
-      content:',';
-      display: block;
-      height: 0;
-      visibility: hidden;
-      clear: both;
-    }
+
   }
+
+  .home-image{
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
 
 }
 

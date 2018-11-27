@@ -7,7 +7,7 @@
   left: 0;
   right: 6px;
   z-index: 999;
-  
+
   .navbar-brand{
     font-size: 24px;
     font-weight: bold;
@@ -20,23 +20,37 @@
     }
   }
 
-  .router-link-active {
-    border: 2px solid;
-    border-color:#ccdbe2e5;
-    // background-color:  rgb(203, 233, 243);
-    font-weight: bold;
-  }
-
   .nav-link{
     h6 {
-      color: #999;
+      color: grey;
       margin-bottom: 0;
-      font-weight: bold;
+      opacity: 0.5;
+      // font-weight: bold;
     }
+    h6:hover {
+      opacity: 1.0;
+      color: rgb(206, 96, 151);
+  }
     &a {
-      border: 0px solid #000;
+      border: 0px solid rgb(250, 178, 178);
     }
   }
+
+  .router-link-active {
+    // border: 2px solid;
+    // border-color:#ccdbe2e5;
+    // background-color:  rgb(203, 233, 243);
+
+    h6 {
+      font-weight: bold;
+      color: rgb(206, 96, 151);
+      opacity: 1.0;
+  }
+
+  }
+
+
+
 
   .signup-btn{
     border-color: #999;

@@ -41,12 +41,16 @@
     .intro-two{
       position: absolute;
       top: 24%;
-      left: 15%;
+      left: 25%;
       width: 60%;
-      min-width: 330px;
-      max-width: 380px;
+      max-width: 300px;
       line-height: 1.8;
+      .description{
+        font-weight: bold;
+        line-height: 2.4;
+      }
       a.btn-default{
+        margin-top: 18px;
         color: #333;
         background-color: #fff;
         border-color: #ccc;

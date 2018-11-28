@@ -60,7 +60,7 @@ export class HomeListComponent implements OnInit, OnDestroy {
     let that = this;
     $('.bxslider').bxSlider({
       // slideWidth: slideWidth,
-      // auto: true,
+      auto: true,
       pause: 6000,
       adaptiveHeight: true,
       startSlides: 0,

@@ -58,8 +58,8 @@ export class CustominfoUploadComponent implements OnInit {
         that.firstname = '';
         that.lastname = '';
         that.emailaddress = '';
-        var file = document.getElementById('fileWidget');
-        file.value = '';
+        var fileObj = (<HTMLInputElement>document.getElementById('fileWidget'));
+        fileObj.value = '';
       }
     );
   }

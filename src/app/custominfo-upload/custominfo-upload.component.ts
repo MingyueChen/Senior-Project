@@ -31,6 +31,7 @@ export class CustominfoUploadComponent implements OnInit {
   }
 
   sendUserInfo () {
+    var that = this;
     if (this.firstname === '' || this.firstname === undefined || this.firstname === null){
       alert('please input lastname');
       return false;
@@ -53,6 +54,12 @@ export class CustominfoUploadComponent implements OnInit {
     this.http.post(BACKEND_URL + 'mail/send', msg, headers).subscribe(
       data => {
         console.log(data);
+        alert('Send Success!');
+        that.firstname = '';
+        that.lastname = '';
+        that.emailaddress = '';
+        var fileObj = (<HTMLInputElement>document.getElementById('fileWidget'));
+        fileObj.value = '';
       }
     );
   }

@@ -88,10 +88,20 @@ export class HomeListComponent implements OnInit, OnDestroy {
 
   computedHeight () {
     let windowHeight = window.innerHeight;
-    $(".slider-container").css({
-      'height': windowHeight,
-      'overflow': 'hidden'
-    });
+    var sliderObj = $(".slider-container");
+    if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(window.navigator.userAgent)) {
+      sliderObj.css({
+        'height': windowHeight,
+        'overflow': 'hidden'
+      });
+    } else {
+      $('.bx-viewport').css({
+        overflow: 'inherit'
+      });
+      sliderObj.css({
+        'height': windowHeight,
+      });
+    }
   }
 
   onDelete(employeeID: string) {

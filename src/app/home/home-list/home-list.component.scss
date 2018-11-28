@@ -13,85 +13,88 @@
     width: 100%;
   }
 
-  .first-img{
-    position: relative;
-    .introduce{
-      position: absolute;
-      top: 24%;
-      left: 15%;
-      width: 60%;
-      min-width: 330px;
-      max-width: 520px;
-      .welcome-title{
-        font-weight: bold;
-        font-size: 30px;
+  @media screen and (min-width:701px){
+    .first-img{
+      position: relative;
+      .introduce{
+        position: absolute;
+        top: 24%;
+        left: 15%;
+        width: 60%;
+        min-width: 330px;
+        max-width: 520px;
+        .welcome-title{
+          font-weight: bold;
+          font-size: 30px;
+          line-height: 3;
+          text-align: center;
+        }
+        .brif{
+          font-size: 18px;
+          line-height: 3.2;
+        }
+      }
+    }
+
+    .second-img{
+      position: relative;
+      font-size: 18px;
+      .intro-two{
+        position: absolute;
+        top: 30%;
+        left: 20%;
+        width: 60%;
+        max-width: 300px;
+        line-height: 1.8;
+        .description{
+          font-weight: bold;
+          line-height: 3.2;
+        }
+        a.btn-default{
+          margin-top: 18px;
+          color: #333;
+          background-color: #fff;
+          border-color: #ccc;
+        }
+      }
+    }
+
+    .third-img{
+      position: relative;
+      .intro-third-left{
+        position: absolute;
+        top: 24%;
+        left: 10%;
+        width: 60%;
+        min-width: 230px;
+        max-width: 280px;
+        font-size: 20px;
         line-height: 3;
-        text-align: center;
       }
-      .brif{
-        font-size: 18px;
-        line-height: 3.2;
+
+      .intro-third-right{
+        position: absolute;
+        top: 24%;
+        right: 8%;
+        width: 60%;
+        min-width: 230px;
+        max-width: 280px;
+        font-size: 20px;
+        line-height: 3;
+        .important-msg{
+          font-weight: bold;
+        }
+        a.btn-default{
+          background-color: transparent;
+          margin-top: 15px;
+          color: #333;
+          border: 2px solid #000;
+          border-radius: 4px;
+        }
       }
     }
   }
 
-  .second-img{
-    position: relative;
-    font-size: 18px;
-    .intro-two{
-      position: absolute;
-      top: 30%;
-      left: 20%;
-      width: 60%;
-      max-width: 300px;
-      line-height: 1.8;
-      .description{
-        font-weight: bold;
-        line-height: 3.2;
-      }
-      a.btn-default{
-        margin-top: 18px;
-        color: #333;
-        background-color: #fff;
-        border-color: #ccc;
-      }
-    }
-  }
-
-  .third-img{
-    position: relative;
-    .intro-third-left{
-      position: absolute;
-      top: 24%;
-      left: 10%;
-      width: 60%;
-      min-width: 230px;
-      max-width: 280px;
-      font-size: 20px;
-      line-height: 3;
-    }
-
-    .intro-third-right{
-      position: absolute;
-      top: 24%;
-      right: 8%;
-      width: 60%;
-      min-width: 230px;
-      max-width: 280px;
-      font-size: 20px;
-      line-height: 3;
-      .important-msg{
-        font-weight: bold;
-      }
-      a.btn-default{
-        background-color: transparent;
-        margin-top: 15px;
-        color: #333;
-        border: 2px solid #000;
-        border-radius: 4px;
-      }
-    }
-  }
 
 
 
@@ -102,6 +105,76 @@
     height: auto;
   }
 
+  @media screen and (max-width:701px){
+    .first-img{
+      position: relative;
+      .introduce{
+        text-align: center;
+        .welcome-title{
+          font-weight: bold;
+          font-size: 18px;
+          line-height: 1.6;
+          margin-top: 18px;
+        }
+        .brif{
+          font-size: 18px;
+          line-height: 3.2;
+        }
+      }
+    }
+
+    .second-img{
+      position: relative;
+      font-size: 18px;
+      .intro-two{
+        max-width: 300px;
+        line-height: 1.8;
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 16px;
+        .description{
+          font-weight: bold;
+          line-height: 2.3;
+        }
+        a.btn-default{
+          margin-top: 18px;
+          color: #333;
+          background-color: #fff;
+          border-color: #ccc;
+        }
+      }
+    }
+
+    .third-img{
+      position: relative;
+      .intro-third-left{
+        max-width: 280px;
+        font-size: 20px;
+        line-height: 2.2;
+        margin: 0 auto;
+        margin-top: 16px;
+      }
+
+      .intro-third-right{
+        min-width: 230px;
+        max-width: 280px;
+        font-size: 20px;
+        line-height: 2.2;
+        margin: 0 auto;
+        margin-top: 16px;
+        .important-msg{
+          font-weight: bold;
+        }
+        a.btn-default{
+          background-color: transparent;
+          margin-top: 15px;
+          color: #333;
+          border: 2px solid #000;
+          border-radius: 4px;
+        }
+      }
+    }
+  }
 
 }
 

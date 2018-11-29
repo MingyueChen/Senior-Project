@@ -80,7 +80,8 @@ import {APP_BASE_HREF} from '@angular/common';
   providers: [ContactService,
               MatDialog,
               {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
-              {provide: APP_BASE_HREF, useValue: '/senior-project'},
+              // {provide: APP_BASE_HREF, useValue: '/senior-project'},
+              {provide: APP_BASE_HREF, useValue: './'},
               {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
   ],
   bootstrap: [AppComponent],

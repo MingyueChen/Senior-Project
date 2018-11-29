@@ -35,6 +35,7 @@ import { TestimonialsListComponent } from './testimonials/testimonials-list/test
 import { AboutUsListComponent } from './aboutUs/about-us-list/about-us-list.component';
 import { AboutUsCreateComponent } from './aboutUs/about-us-create/about-us-create.component';
 import { UserCreateComponent } from './user/user-create/user-create.component';
+import {APP_BASE_HREF} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import { UserCreateComponent } from './user/user-create/user-create.component';
   providers: [ContactService,
               MatDialog,
               {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+              {provide: APP_BASE_HREF, useValue: '/senior-project'},
               {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
   ],
   bootstrap: [AppComponent],

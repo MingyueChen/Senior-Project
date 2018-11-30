@@ -91,12 +91,12 @@ export class HomeListComponent implements OnInit, OnDestroy {
     var sliderObj = $(".slider-container");
     if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(window.navigator.userAgent)) {
       sliderObj.css({
-        'height': windowHeight,
-        'overflow': 'hidden'
+        'height': windowHeight
       });
     } else {
       $('.bx-viewport').css({
-        overflow: 'inherit'
+        // overflow: 'inherit',
+        overflow: 'hidden'
       });
       sliderObj.css({
         'height': windowHeight,

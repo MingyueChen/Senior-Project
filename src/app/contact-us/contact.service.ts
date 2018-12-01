@@ -12,37 +12,30 @@ const BACKEND_URL = environment.apiUrl;
 @Injectable({providedIn: 'root'})
 export class ContactService {
   constructor (private http: HttpClient, private router: Router ) {}
-  sendContact(firstName, lastName, emailAddress, phoneNumber, message, compObj) {
-    if (firstName === '' || firstName === undefined || firstName === null) {
-      alert('firstname could not be empty!');
-    } else if (lastName === '' || lastName === undefined || lastName === null) {
-      alert('lastname could not be empty!');
-    } else if (emailAddress === '' || emailAddress === undefined || emailAddress === null) {
-      alert('emailAdress could not be empty!');
-    } else if (phoneNumber === '' || phoneNumber === undefined || phoneNumber === null) {
-      alert('phoneNumber could not be empty!');
-    } else if (message === '' || message === undefined || message === null) {
-      alert('message could not be empty!');
-    } else {
-      let msg = 'firstname=' + firstName + '&lastname=' + lastName;
-      msg = msg + '&emailaddress=' + emailAddress + '&phonenumber=' + phoneNumber + '&message=' + message;
-      console.log(msg);
-      const headers = {
-        headers: new HttpHeaders({
-          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-        })
-      };
-      this.http.post(BACKEND_URL + 'mail/contactUs', msg, headers).subscribe(
-        data => {
-          console.log(data);
-          alert('Send Success!');
-          compObj.firstname = '';
-          compObj.lastname = '';
-          compObj.emailaddress = '';
-          compObj.phonenumber = '';
-          compObj.message = '';
+  sendContact(firstName, lastName, emailAddress, phoneNumber, message, fileUrl, compObj) {
+    let msg = 'firstname=' + firstName + '&lastname=' + lastName;
+    msg = msg + '&emailaddress=' + emailAddress + '&phonenumber=' + phoneNumber + '&message=' + message + '&fileUrl=' + fileUrl;
+    console.log(msg);
+    debugger
+    const headers = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+      })
+    };
+    this.http.post(BACKEND_URL + 'mail/contactUs', msg, headers).subscribe(
+      data => {
+        console.log(data);
+        alert('Send Success!');
+        compObj.firstname = '';
+        compObj.lastname = '';
+        compObj.emailaddress = '';
+        compObj.phonenumber = '';
+        compObj.message = '';
+        var fileObj = (<HTMLInputElement>document.getElementById('contactUsfileWidget'));
+        if (fileObj !== undefined && fileObj !== null) {
+          fileObj.value = '';
         }
-      );
-    }
+      }
+    );
   }
 }

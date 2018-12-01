@@ -90,13 +90,21 @@ router.post('/contactUs', function (req, res, next) {
     <div>firstName : ${req.body.firstname}</div>
     <div>lastName : ${req.body.lastname}</div>
     <div>email : ${req.body.emailaddress}</div>
-    <div>phonenumber : ${req.body.phonenumber}</div>
-    <div>message : ${req.body.message}</div>
-  </div>`;
+    <div>phonenumber : ${req.body.phonenumber}</div>`;
+
+  if (req.body.message !== undefined && req.body.message !== null && req.body.message !== '') {
+    contactUsHtml = contactUsHtml + `<div>message : ${req.body.message}</div>`;
+  }
+  if (req.body.fileUrl !== undefined && req.body.fileUrl !== null && req.body.fileUrl !== '') {
+    contactUsHtml = contactUsHtml + `<div>file : <a href="${req.body.fileUrl}" _target="blank">down upload file</a> </div>`
+  }
+  contactUsHtml = contactUsHtml + '</div>';
 
   var mailOptions = {
     from: '2242135581@qq.com', // login user must equal to this user
-    to: 'rxu960830@ufl.edu',  // xrj0830@gmail.com
+    // to: 'rxu960830@ufl.edu',  // xrj0830@gmail.com
+    to: 'hbiao68@yeah.net',  // xrj0830@gmail.com
+
     subject: 'You have a new message',
     html: contactUsHtml
   };

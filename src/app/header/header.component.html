@@ -1,9 +1,12 @@
-<nav class="navbar navbar-expand-md navbar-light header-component shadow rounded"
-style="background-color: #eff7fce5;">
+<nav class="navbar navbar-expand-md header-component"
+style=" background-color: transparent;
+background: transparent;
+border-color: transparent;"
+>
   <a class="navbar-brand" routerLink="/">Kattell and Company, P.L.</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
           aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <span class="navbar-toggler-icon icon-bar"><i class="fa fa-bars" aria-hidden="true"></i></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarNav">
@@ -27,7 +30,7 @@ style="background-color: #eff7fce5;">
         <a class="nav-link" routerLink="/userList" routerLinkActive="router-link-active" [routerLinkActiveOptions]="{exact:
                       true}"><h6>Our Client</h6></a>
       </li>
-      <!-- <li class="nav-item">
+     <!-- <li class="nav-item">
         <a class="nav-link" routerLink="/officeLocation" routerLinkActive="router-link-active"
            [routerLinkActiveOptions]="{exact:
                       true}"><h6>Office Location</h6></a>
@@ -53,4 +56,12 @@ style="background-color: #eff7fce5;">
     <button *ngIf="adminIsAuthenticated" class="btn btn-outline-secondary  my-2 my-sm-0 logout-btn" (click)="onLogout()"><h6>Log Out</h6>
     </button>
   </div> <!--end of second group div-->
-</nav>
+ </nav>
+
+<!-- style="background-color: #eff7fce5;" -->
+
+
+
+
+
+

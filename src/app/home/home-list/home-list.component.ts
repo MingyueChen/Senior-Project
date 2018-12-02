@@ -87,7 +87,8 @@ export class HomeListComponent implements OnInit, OnDestroy {
       });
     } else {
       $('.bx-viewport').css({
-        overflow: 'inherit'
+        // overflow: 'inherit',
+        overflow: 'hidden'
       });
       sliderObj.css({
         'height': windowHeight - 50,

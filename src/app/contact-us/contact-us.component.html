@@ -31,7 +31,19 @@
           <label>Phone Number</label>
           <input type="text" name="phonenumber" [(ngModel)] ="phonenumber">
         </p>
-        <p class="full">
+        <p>
+          <label>Send Message Type</label>
+          <select class="form-control" name="sendMsgType" [(ngModel)] ="sendMsgType">
+            <option>message</option>
+            <option>file</option>
+            <option>both</option>
+          </select>
+        </p>
+        <p *ngIf="sendMsgType == 'file' || sendMsgType == 'both'">
+          <label>Upload File</label>
+          <input id="contactUsfileWidget" type="file" ng2FileSelect [uploader]="uploader" (change)="selectedFileOnChanged($event)" />
+        </p>
+        <p class="full" *ngIf="sendMsgType == 'message' || sendMsgType == 'both'">
           <label>Message</label>
           <textarea type ="text" name="message" rows="5" [(ngModel)]="message"></textarea>
         </p>

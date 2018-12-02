@@ -5,16 +5,18 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
+import { ActivatedRoute, Params, UrlSegment } from '@angular/router';
+
 import { environment } from '../../environments/environment';
 
-const BACKEND_URL = environment.apiUrl;
+const BACKEND_URL = environment.apiUrl  + 'employee/';
 
 @Injectable({providedIn: 'root'})
 export class AboutUsService {
   private employeeInfo: EmployeeInfo[] = [];
   private employeeInfoUpdated = new Subject<EmployeeInfo[]>();
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) {}
   getInfo() {
     // make a true copy of employeeInfo
     // edit or delete info would not affect employeeInfo array
@@ -135,6 +137,8 @@ export class AboutUsService {
         this.employeeInfo = updatedInfo;
         this.employeeInfoUpdated.next([...this.employeeInfo]);
         this.router.navigate(['/aboutUs']);
+
+        console.log(this.router.url);
     });
   }
 

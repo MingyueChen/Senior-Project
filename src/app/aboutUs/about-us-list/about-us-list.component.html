@@ -93,7 +93,7 @@
                           <br/>
                           <br/>
 
-                          <a *ngIf="adminIsAuthenticated" class="btn btn-outline-info btn-sm" [routerLink]="['/edit', einfo.employeeID]">EDIT</a>
+                          <a *ngIf="adminIsAuthenticated" class="btn btn-outline-info btn-sm" [routerLink]="['/employee/edit', einfo.employeeID]">EDIT</a>
                           <button *ngIf="adminIsAuthenticated" class="btn btn-outline-danger btn-sm" (click)="onDelete(einfo.employeeID)">
                             DELETE </button>
                             <br/>  <br/>

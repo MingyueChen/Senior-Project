@@ -25,7 +25,7 @@
       color: grey;
       margin-bottom: 0;
       opacity: 0.5;
-      // font-weight: bold;
+      font-weight: 600;
     }
     h6:hover {
       opacity: 1.0;
@@ -36,6 +36,12 @@
     }
   }
 
+
+.navbar .navbar-toggler .icon-bar {
+  color: black !important;
+}
+
+
   .router-link-active {
     // border: 2px solid;
     // border-color:#ccdbe2e5;
@@ -45,11 +51,9 @@
       font-weight: bold;
       color: rgb(206, 96, 151);
       opacity: 1.0;
-  }
+    }
 
   }
-
-
 
 
   .signup-btn{
@@ -83,7 +87,18 @@
 }
 
 
+@media (min-width: 768px) {
+  .header-component {
+    background-color: transparent;
+    background: transparent;
+    border-color: transparent;
+  }
+}
 
-
-
+/* Anything Smaller than Large  */
+@media (max-width: 767px) {
+  .header-component {
+      background:white;
+  }
+}
 

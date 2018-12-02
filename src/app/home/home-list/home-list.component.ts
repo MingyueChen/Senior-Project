@@ -1,8 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HomeService } from '../home.service';
-import { EmployeeInfo } from '../home.model';
 import { Subscription } from 'rxjs';
-import { AuthService } from '../../auth/auth.service';
 declare var $: any;
 
 @Component({
@@ -20,23 +18,25 @@ export class HomeListComponent implements OnInit, OnDestroy {
   ];
 
   private homeSub: Subscription;
-  constructor(public homeService: HomeService, private authService: AuthService) {
+  constructor(public homeService: HomeService) {
     window.addEventListener('resize', this.computedHeight);
     console.log('constructor');
   }
 
+  // tslint:disable-next-line:use-life-cycle-interface
   ngDoCheck () {
-    let that = this;
+    const that = this;
     window.setTimeout(function () {
       that.computedHeight();
       $('.bx-controls.bx-has-pager').css({
-        'position': 'fixed',
+        'position': 'relative',
         'bottom': '45px',
         'width': '100%',
         'display': 'block',
-        'margin': '0 auto'
+        'margin': '0 auto',
+        'background': 'red'
       });
-    },500);
+    }, 500);
   }
 
   ngOnInit() {
@@ -44,20 +44,10 @@ export class HomeListComponent implements OnInit, OnDestroy {
     // let slideWidth = document.documentElement.clientWidth || document.body.clientWidth;
     this.slideInit();
 
-    // this.homeService.getInfo();
-    // // 1st argument in subscribe: a function which is called whenever a new value was received
-    // this.homeSub = this.homeService.getInfoUpdateListener()
-    //   .subscribe((employeeInfo: EmployeeInfo[]) => {
-    //    this.employeeInfo = employeeInfo;
-    //   });
-    //   this.adminIsAuthenticated = this.authService.getIsAuth();
-    //   this.authListenerSubs = this.authService.getAuthStatusListener().subscribe(isAuthenticated => {
-    //     this.adminIsAuthenticated = isAuthenticated;
-    //   });
   }
 
   slideInit () {
-    let that = this;
+    const that = this;
     $('.bxslider').bxSlider({
       // slideWidth: slideWidth,
       auto: true,
@@ -77,21 +67,23 @@ export class HomeListComponent implements OnInit, OnDestroy {
     window.setTimeout(function () {
       that.computedHeight();
       $('.bx-controls.bx-has-pager').css({
-        'position': 'fixed',
+        'position': 'relative',
         'bottom': '45px',
         'width': '100%',
         'display': 'block',
-        'margin': '0 auto'
+        'margin': '0 auto',
+        'background': 'red'
       });
-    },500);
+    }, 500);
   }
 
   computedHeight () {
-    let windowHeight = window.innerHeight;
-    var sliderObj = $(".slider-container");
-    if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(window.navigator.userAgent)) {
+    const windowHeight = window.innerHeight;
+    const sliderObj = $('.slider-container');
+    if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(window.navigator.userAgent)) {
       sliderObj.css({
-        'height': windowHeight
+        'height': windowHeight - 50,
+        'overflow': 'hidden'
       });
     } else {
       $('.bx-viewport').css({
@@ -99,7 +91,7 @@ export class HomeListComponent implements OnInit, OnDestroy {
         overflow: 'hidden'
       });
       sliderObj.css({
-        'height': windowHeight,
+        'height': windowHeight - 50,
       });
     }
   }

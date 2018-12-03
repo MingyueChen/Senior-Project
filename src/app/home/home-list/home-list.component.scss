@@ -46,26 +46,23 @@
       font-size:30px;
       .intro-two{
         position: absolute;
-        top: 15%;
-        right: 8%;
+        top: 25%;
+        left: 20%;
         width: 60%;
-        max-width: 300px;
+        right:20%;
+        // max-width: 300px;
         line-height: 1.8;
         .description{
+          text-align: center;
           font-weight: bold;
           line-height: 2;
           font-family: Arial, Helvetica, sans-serif;
           text-shadow: 0 1px 2px rgba(0,0,0,.6);
         }
-        a.btn-default{
+        a.btn-outline-dark{
+          position: relative;
+          margin-left: 42%;
           margin-top: 18px;
-          color: #333;
-          background-color: #fff;
-          border-color: #ccc;
-          &:hover{
-            background-color: #6c757d;
-            color: #fff;
-          }
         }
       }
     }
@@ -75,14 +72,14 @@
       .intro-third-left{
         position: absolute;
         top: 24%;
-        left: 10%;
-        width: 60%;
+        left: 6%;
+        width: 65%;
         min-width: 230px;
         max-width: 280px;
         font-size: 20px;
         font-size: 25px;
         font-family: Helvetica;
-        color: rgb(105, 52, 93);
+        color: black;
         text-shadow: 0 1px 2px rgba(111, 59, 137, 0.496);
         line-height: 2.5;
       }
@@ -90,18 +87,19 @@
       .intro-third-right{
         position: absolute;
         top: 24%;
-        right: 8%;
-        width: 60%;
+        right: 4%;
+        width: 65%;
         min-width: 230px;
         max-width: 280px;
         font-size: 25px;
         font-family: Helvetica;
-        color: rgb(105, 52, 93);
-        text-shadow: 0 1px 2px rgba(111, 59, 137, 0.496);
+        color:black;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.496);
         line-height: 2.5;
 
         .word{
           font-size: 30px;
+          color: rgb(15, 120, 147);
         }
         a.btn-default{
           background-color: transparent;
@@ -129,6 +127,9 @@
     opacity: 0.5;
   }
 
+  #second-image {
+    opacity:0.2;
+  }
   @media screen and (max-width:701px){
     .first-img{
       position: relative;
@@ -160,7 +161,7 @@
           font-weight: bold;
           line-height: 2.3;
         }
-        a.btn-default{
+        a.btn-outline-dark{
           margin-top: 18px;
           color: #333;
           background-color: #fff;
@@ -186,9 +187,6 @@
         line-height: 2.2;
         margin: 0 auto;
         margin-top: 16px;
-        .important-msg{
-          font-weight: 600;
-        }
         a.btn-default{
           background-color: transparent;
           margin-top: 15px;

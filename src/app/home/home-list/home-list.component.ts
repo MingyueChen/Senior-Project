@@ -1,6 +1,4 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { HomeService } from '../home.service';
-import { Subscription } from 'rxjs';
 declare var $: any;
 
 @Component({
@@ -10,17 +8,8 @@ declare var $: any;
 })
 export class HomeListComponent implements OnInit, OnDestroy {
 
-  adminIsAuthenticated = false;
-  private authListenerSubs: Subscription;
-  employeeInfo = [
-    // { employeeName: 'Tony', email: 'tony@gmail.com'},
-    // { employeeName: 'Stephen H. Kattell', email: 'skattell@kattell.com' }
-  ];
-
-  private homeSub: Subscription;
-  constructor(public homeService: HomeService) {
+  constructor() {
     window.addEventListener('resize', this.computedHeight);
-    console.log('constructor');
   }
 
   // tslint:disable-next-line:use-life-cycle-interface
@@ -40,7 +29,6 @@ export class HomeListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    console.log('ngOnInit');
     // let slideWidth = document.documentElement.clientWidth || document.body.clientWidth;
     this.slideInit();
 
@@ -96,9 +84,7 @@ export class HomeListComponent implements OnInit, OnDestroy {
     }
   }
 
-  onDelete(employeeID: string) {
-    this.homeService.deleteEmployeeInfo(employeeID);
-  }
+
   // when this component is not part of DOM, the subcscriptions which we set up are not living anymore. Otherwise, we will get memory leak.
   ngOnDestroy() {
     // this.homeSub.unsubscribe();

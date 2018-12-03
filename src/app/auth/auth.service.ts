@@ -35,6 +35,7 @@ export class AuthService {
     }; // end of create authData
     this.http.post(BACKEND_URL + 'signup', authData).subscribe(() => {
       this.router.navigate(['/login']);
+      alert('Sign up success. Please confirm your email before login.');
     }, error => {
       // console.log(error);
       this.router.navigate(['/signup']);

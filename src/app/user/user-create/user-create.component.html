@@ -1,31 +1,34 @@
 <div class = "card col-6 mx-auto" id="homeCard" style="margin-top: 5%;" >
     <form [formGroup]="form" (submit) = "onSaveUserInfo()">
-        <div class="form-group" style="margin-top: 2%;">
-          <!-- <label for="exampleInputEmail1">Email address</label> -->
-            <input type="text" class="form-control"
-            id="InputURL" placeholder="Enter Organization Website URL*"
+        <mat-form-field style="margin-top: 2%;">
+            <input matInput type="text"
+            id="InputURL" placeholder="Enter an Organization Website URL*"
             name="userWebsite"
             formControlName="userWebsite">
+            <mat-error *ngIf="form.get('userWebsite').invalid">Please enter a valid organization website URL</mat-error>
+        </mat-form-field>
+        <br/><br/>
 
-        </div>
-
-        <div class="form-group">
+        <mat-form-field >
           <input type="name"
-          class="form-control"
+          matInput
           id="InputName"
-          placeholder="Enter Organization Name*"
+          placeholder="Enter an Organization Name*"
           name="userName"
           formControlName="userName">
-        </div>
+          <mat-error *ngIf="form.get('userName').invalid">Please enter a valid organization name</mat-error>
+        </mat-form-field>
 
-        <div class="form-group">
+        <br/><br/>
+        <mat-form-field class="form-group">
             <input type="text"
-            class="form-control"
+            matInput
             id="InputLocation"
-            placeholder="Enter Organization Location*"
+            placeholder="Enter an Organization Location*"
             name="userLocation"
             formControlName="userLocation">
-        </div>
+            <mat-error *ngIf="form.get('userLocation').invalid">Please enter a valid organization location</mat-error>
+        </mat-form-field>
 
 
         <br/>

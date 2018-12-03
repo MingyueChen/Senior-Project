@@ -57,6 +57,7 @@ export class AboutUsCreateComponent implements OnInit {
             employeeBio: infoData.employeeBio,
             image: this.employeeInfo.imagePath
           });
+          this.imagePreview = this.employeeInfo.imagePath;
         });
       } else {
         this.mode = 'create';

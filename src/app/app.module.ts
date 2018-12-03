@@ -8,7 +8,7 @@ import { MatSnackBarModule, MatDialogModule, MatButtonModule, MatInputModule, Ma
 import { FileUploadModule } from 'ng2-file-upload';
 
 import { AppComponent } from './app.component';
-import { HomeCreateComponent } from './home/home-create/home-create.component';
+// import { HomeCreateComponent } from './home/home-create/home-create.component';
 import { HeaderComponent } from './header/header.component';
 import { OfficeLocationComponent } from './office-location/office-location.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
@@ -35,12 +35,11 @@ import { TestimonialsListComponent } from './testimonials/testimonials-list/test
 import { AboutUsListComponent } from './aboutUs/about-us-list/about-us-list.component';
 import { AboutUsCreateComponent } from './aboutUs/about-us-create/about-us-create.component';
 import { UserCreateComponent } from './user/user-create/user-create.component';
-import {APP_BASE_HREF} from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeCreateComponent,
+    // HomeCreateComponent,
     HeaderComponent,
     OfficeLocationComponent,
     ContactUsComponent,
@@ -80,8 +79,6 @@ import {APP_BASE_HREF} from '@angular/common';
   providers: [ContactService,
               MatDialog,
               {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
-              // {provide: APP_BASE_HREF, useValue: '/senior-project'},
-              {provide: APP_BASE_HREF, useValue: './'},
               {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
   ],
   bootstrap: [AppComponent],

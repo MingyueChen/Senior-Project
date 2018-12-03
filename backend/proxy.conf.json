@@ -1,9 +1,8 @@
 {
   "/mail": {
-    "target":"http://kattell-test.us-east-2.elasticbeanstalk.com",
+    "target":"http://kattell-test.s3-website.us-east-2.amazonaws.com",
     "secure":false,
     "logLevel":"debug",
     "changeOrigin":true
-
   }
 }

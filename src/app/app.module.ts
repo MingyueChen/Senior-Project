@@ -8,7 +8,6 @@ import { MatSnackBarModule, MatDialogModule, MatButtonModule, MatInputModule, Ma
 import { FileUploadModule } from 'ng2-file-upload';
 
 import { AppComponent } from './app.component';
-// import { HomeCreateComponent } from './home/home-create/home-create.component';
 import { HeaderComponent } from './header/header.component';
 import { OfficeLocationComponent } from './office-location/office-location.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
@@ -18,7 +17,6 @@ import { AgmCoreModule } from '@agm/core';
 
 import { DataTablesModule } from 'angular-datatables';
 import { HomeListComponent } from './home/home-list/home-list.component';
-import { HomeCreateComponent } from './home/home-create/home-create.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {ContactService} from './contact-us/contact.service';
 import { UserListComponent } from './user/user-list/user-list.component';
@@ -40,7 +38,6 @@ import { UserCreateComponent } from './user/user-create/user-create.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeCreateComponent,
     HeaderComponent,
     OfficeLocationComponent,
     ContactUsComponent,

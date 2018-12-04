@@ -1,2 +1,18 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~font-awesome/css/font-awesome.css";
+
+mat-form-field {
+  width:100%;
+}
+
+#homeCard {
+  border-radius: 25px;
+  box-shadow: 0 8px 16px 0 rgba(25, 225, 171, 0.2);
+  transition: 0.3s;
+  background-color: white;
+}
+
+#homeCard:hover {
+  box-shadow: 4px 8px 8px 4px rgba(25, 225, 171, 0.2);
+}
+

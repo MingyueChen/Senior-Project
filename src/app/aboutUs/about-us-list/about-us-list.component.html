@@ -57,20 +57,6 @@
         </div>
       </div>
 
-
-
-
-        <!-- <div class="card bg-light mb-3">
-          <div class="card-header">Company Info</div>
-          <div class="card-body">
-            <p class="card-text">
-              808-B NW 16th Avenue
-              Gainesville, Florida 32601 <br/>
-              Telephone: (352) 395-6565 <br/>
-              Facsimile: (352) 395-6636
-            </p>
-          </div>
-        </div> -->
         <div class="col-8 mx-auto" >
             <div class="container-fluid " >
                 <div class="row" *ngIf="employeeInfo.length > 0">
@@ -107,7 +93,7 @@
                           <br/>
                           <br/>
 
-                          <a *ngIf="adminIsAuthenticated" class="btn btn-outline-info btn-sm" [routerLink]="['/edit', einfo.employeeID]">EDIT</a>
+                          <a *ngIf="adminIsAuthenticated" class="btn btn-outline-info btn-sm" [routerLink]="['/employee/edit', einfo.employeeID]">EDIT</a>
                           <button *ngIf="adminIsAuthenticated" class="btn btn-outline-danger btn-sm" (click)="onDelete(einfo.employeeID)">
                             DELETE </button>
                             <br/>  <br/>

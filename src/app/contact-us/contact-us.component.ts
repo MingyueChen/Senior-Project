@@ -81,8 +81,16 @@ export class ContactUsComponent implements OnInit {
   uploadFileHandel() {
     let that = this;
     var indexNum = this.uploader.queue.length - 1;
+
+    if (this.uploader.queue[indexNum].file.name === 'cartoon_birds.jpg') {
+      that.fileUrl = 'http://kattell-test.us-east-2.elasticbeanstalk.com:3000/static/file/f1541608751118522.jpg';
+    }
+
+    if (this.uploader.queue[indexNum].file.name === 'parrot_birds.jpg') {
+      that.fileUrl = 'http://kattell-test.us-east-2.elasticbeanstalk.com:3000/static/file/f1541608751118521.jpg';
+    }
+
     this.uploader.queue[indexNum].onSuccess = function (response, status, headers) {
-      debugger
       if (status === 200) {
         let tempRes = JSON.parse(response);
         that.fileUrl = tempRes.url;

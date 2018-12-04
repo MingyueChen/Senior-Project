@@ -16,8 +16,8 @@ let transporter  = nodemailer.createTransport({
   service: 'Gmail',
   secure: true,
   auth: {
-    user: 'mingyuehappy@gmail.com',
-    pass: 'mc$56*27',
+    user: 'kattellandcompanypl@gmail.com',
+    pass: 'kattellmcrx2018',
   }});
 
 
@@ -39,12 +39,12 @@ bcryptjs.genSalt(saltRounds, function(err, salt) {
           process.env.JWT_KEY,
           {expiresIn: "1d"},
           (err, emailToken) => {
-            const url = 'http://kattell-test.us-east-2.elasticbeanstalk.com/admin/confirmation/' + emailToken;
+            const url = 'http://localhost:3000/admin/confirmation/' + emailToken;
             transporter.sendMail({
-              from: 'mingyuehappy@gmail.com',
+              from: 'kattellandcompanypl@gmail.com',
               to: admin.email,
-              subject: 'Confirm Email',
-              html: `Please click this link to confirm your email: <a href="${url}">Click Here</a>`
+              subject: 'Confirm Email From Kattell And Company',
+              html: `You created an account for Kattell And Company website. Please click this link to confirm your email: <a href="${url}">Click Here</a>`
             }); // end of sendMail
           }, // end of {err, emailToken}
         ); // end of jwt.sign()
@@ -133,6 +133,6 @@ router.get("/confirmation/:token", async (req, res) => {
     res.send('error');
   }
 
-  return res.redirect('http://kattell-test.s3-website.us-east-2.amazonaws.com/login');
+  return res.redirect('http://localhost:4200/login');
 });
 module.exports = router;

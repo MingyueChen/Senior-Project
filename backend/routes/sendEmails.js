@@ -44,7 +44,7 @@ router.post('/send', function (req, res, next) {
 
   var mailOptions = {
     from: '2242135581@qq.com', // login user must equal to this user
-    to: 'xrj0830@gmail.com',  // xrj0830@gmail.com
+    to: 'kattellandcompanypl@gmail.com',  // xrj0830@gmail.com
     subject: 'You have a new uploaded file',
     html: sendHtml
   };
@@ -102,7 +102,7 @@ router.post('/contactUs', function (req, res, next) {
 
   var mailOptions = {
     from: '2242135581@qq.com', // login user must equal to this user
-    to: 'rxu960830@ufl.edu',  // xrj0830@gmail.com
+    to: 'kattellandcompanypl@gmail.com',  // xrj0830@gmail.com
     subject: 'You have a new message',
     html: contactUsHtml
   };

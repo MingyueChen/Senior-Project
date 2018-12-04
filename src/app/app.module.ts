@@ -18,6 +18,7 @@ import { AgmCoreModule } from '@agm/core';
 
 import { DataTablesModule } from 'angular-datatables';
 import { HomeListComponent } from './home/home-list/home-list.component';
+import { HomeCreateComponent } from './home/home-create/home-create.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {ContactService} from './contact-us/contact.service';
 import { UserListComponent } from './user/user-list/user-list.component';
@@ -39,7 +40,7 @@ import { UserCreateComponent } from './user/user-create/user-create.component';
 @NgModule({
   declarations: [
     AppComponent,
-    // HomeCreateComponent,
+    HomeCreateComponent,
     HeaderComponent,
     OfficeLocationComponent,
     ContactUsComponent,

@@ -1,6 +1,6 @@
 {
   "/mail": {
-    "target":"http://kattell-test.s3-website.us-east-2.amazonaws.com",
+    "target":"http://kattell-test.us-east-2.elasticbeanstalk.com:3000",
     "secure":false,
     "logLevel":"debug",
     "changeOrigin":true

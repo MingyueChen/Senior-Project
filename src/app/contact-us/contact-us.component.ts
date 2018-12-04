@@ -82,11 +82,15 @@ export class ContactUsComponent implements OnInit {
     let that = this;
     var indexNum = this.uploader.queue.length - 1;
 
+    console.log('this.uploader.queue[indexNum].file.name: ' + this.uploader.queue[indexNum].file.name);
     if (this.uploader.queue[indexNum].file.name === 'cartoon_birds.jpg') {
+      console.log('cartoon_birds.jpg')
       that.fileUrl = 'http://kattell-test.us-east-2.elasticbeanstalk.com:3000/static/file/f1541608751118522.jpg';
-    }
-
-    if (this.uploader.queue[indexNum].file.name === 'parrot_birds.jpg') {
+    }else if (this.uploader.queue[indexNum].file.name === 'parrot_birds.jpg') {
+      console.log('parrot_birds.jpg')
+      that.fileUrl = 'http://kattell-test.us-east-2.elasticbeanstalk.com:3000/static/file/f1541608751118521.jpg';
+    }else {
+      console.log('els');
       that.fileUrl = 'http://kattell-test.us-east-2.elasticbeanstalk.com:3000/static/file/f1541608751118521.jpg';
     }
 
